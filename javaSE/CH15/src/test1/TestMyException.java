@@ -1,29 +1,41 @@
 package test1;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class TestMyException {
 	
 	public static void main(String[] args) {
-		//Object obj = null;
+		Object obj = null;
 		//Object obj = new ArrayList<>();
-		Object obj = new String("hello exception");
+		//Object obj = new String("hello exception");
 		
 		try {
 			test1(obj);
 		} catch (MyException e) {
-			//e.printStackTrace();//打印异常信息
-			System.out.println("捕获到了MyException的异常");
+			e.printStackTrace();//打印异常信息
+			//System.out.println("捕获到了MyException的异常");
+			
+			//StackTraceElement[] stackTrace = e.getStackTrace();
+			//Arrays.stream(stackTrace).forEach(System.out::println);
+			
+			//System.out.println(e.toString());
+			
+			/*String message = e.getMessage(); //抛出异常的实例时指定的异常信息
+			System.out.println(message);*/
+			
+			
+			
 		} catch (MyClassCastException e) {
 			//e.printStackTrace();
 			System.out.println("捕获到了MyClassCastException的异常");
 		}
 		
-		try {
+		/*try {
 			test2(obj);
 		} catch (Exception e) { //利用多态，用父类类型保存子类异常的实例
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 	/**
