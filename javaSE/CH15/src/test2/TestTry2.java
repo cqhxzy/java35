@@ -14,6 +14,7 @@ public class TestTry2 {
 			System.out.println("try中的代码执行完毕");
 		} catch (Exception e) {
 			System.out.println("捕获到异常");
+			String message = e.getMessage(); //抛出异常对象时的异常信息
 		} finally {
 			System.out.println("执行finally代码块中的内容");
 		}
