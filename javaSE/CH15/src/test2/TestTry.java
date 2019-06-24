@@ -6,6 +6,7 @@ public class TestTry {
 		/*
 		 * try - catch代码块
 		 * */
+		//1
 		try {
 			//捕获有可能出现异常的代码块（方法）
 		} catch(Exception ex) { //一旦try中出现了异常，则自动根据异常的类型进入到catch中，
