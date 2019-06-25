@@ -71,18 +71,16 @@ public class ListFiles {
             BufferedReader br = new BufferedReader(new InputStreamReader(is,"GBK"));             
             String line;  
             while((line = br.readLine()) != null){  
-                //if(line.endsWith(".txt")){  
-                    if (line.length() < 24) {
-						continue;
-					}
-                    strTime = line.substring(0,23);  
-                    String date_regex = "(\\d{4}/\\d{2}/\\d{2}) {1,}";
-                    Pattern pattern = Pattern.compile(date_regex);
-                    Matcher matcher = pattern.matcher(strTime);
-                    if (matcher.find()) { //只要找到了，则说明这是一个日期
-                    	return strTime;
-					}
-               // }                             
+                if (line.length() < 24) {
+					continue;
+				}
+                strTime = line.substring(0,23);  
+                String date_regex = "(\\d{4}/\\d{2}/\\d{2}) {1,}";
+                Pattern pattern = Pattern.compile(date_regex);
+                Matcher matcher = pattern.matcher(strTime);
+                if (matcher.find()) { //只要找到了，则说明这是一个日期
+                	return strTime;
+				}
              }   
         } catch (IOException e) {  
             e.printStackTrace();  
