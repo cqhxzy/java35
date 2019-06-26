@@ -42,7 +42,7 @@ public class Test1 {
 	
 	/**
 	 * 按字节读取文件，每次读一个字节
-	 * @param args
+	 * @param
 	 */
 	private static void readByte() {
 		InputStream in = null;

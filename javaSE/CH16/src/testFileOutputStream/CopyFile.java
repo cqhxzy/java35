@@ -38,9 +38,9 @@ public class CopyFile {
 		try {
 			in = new FileInputStream(file);
 			out = new FileOutputStream(dest);//如果有则覆盖dest目录中原有的文件
-			
+
 			byte[] bytes = new byte[2056];
-			
+
 			int len;
 			int count = 0;
 			while ((len = in.read(bytes)) != -1) { //只要每次读得到的字节的个数不为-1，则继续读

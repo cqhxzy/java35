@@ -19,7 +19,8 @@ public class TestFileOutPutStream {
 		 * 
 		 */
 		String s = System.getProperty("line.separator");
-		//write(s + "Twinkle, twinkle, littlestar," + s + "How I wonder what you are!");
+		write(s + "Twinkle, twinkle, littlestar," + s + "How I wonder what you are!");
+		//writeByteArr(s + "Twinkle, twinkle, littlestar," + s + "How I wonder what you are!");
 	}
 
 	/**
