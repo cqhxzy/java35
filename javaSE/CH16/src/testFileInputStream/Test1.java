@@ -48,7 +48,7 @@ public class Test1 {
 		InputStream in = null;
 		try {
 			
-			in = new FileInputStream("E:\\\\hxcinema.sql");
+			in = new FileInputStream("E:\\hxcinema.sql");
 			//通过read()  方法，从in对象中每次读一个字节
 			int i;
 			while( (i = in.read()) != -1 ) { //如果in.read() 返回-1，说明读到了文件的末尾
