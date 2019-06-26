@@ -5,6 +5,7 @@ import java.io.Serializable;
 /**
  * 将学生类的对象已序列化的形式保存到本地的文件中
  * @author Nick
+ * 2019/06/26
  */
 public class Student implements Serializable{
 
