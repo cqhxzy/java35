@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.UUID;
 
+/**
+ * 文件的复制和粘贴
+ */
 public class CopyFile {
 
 	public static void main(String[] args) {
