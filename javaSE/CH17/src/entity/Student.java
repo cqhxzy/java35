@@ -13,6 +13,7 @@ public class Student {
     //alt + insert
 
     public Student() {
+        System.out.println("Student类的无参构造方法被执行了");
     }
 
     public Student(String name, Integer age) {
