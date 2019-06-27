@@ -19,6 +19,7 @@ public class Student {
     public Student(String name, Integer age) {
         this.name = name;
         this.age = age;
+        System.out.println("Student类的有参构造方法被执行了");
     }
 
     @Override
