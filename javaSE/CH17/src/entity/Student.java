@@ -50,6 +50,7 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
+        System.out.println("setName被执行了");
     }
 
     public Integer getAge() {
@@ -58,5 +59,6 @@ public class Student {
 
     public void setAge(Integer age) {
         this.age = age;
+        System.out.println("setAge被执行了");
     }
 }
