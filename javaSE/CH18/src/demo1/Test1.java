@@ -23,8 +23,14 @@ public class Test1 {
     }
 
     public static void main(String[] args) {
-        MyThread t = new MyThread();//实例化一个对象
-        t.start();//开启线程
+        MyThread t1 = new MyThread();//实例化一个对象
+        MyThread t2 = new MyThread();//实例化一个对象
+        MyThread t3 = new MyThread();//实例化一个对象
+        MyThread t4 = new MyThread();//实例化一个对象
+        t1.start();//开启线程
+        t2.start();//开启线程
+        t3.start();//开启线程
+        t4.start();//开启线程   总共开启了4个线程
 
         for (int i = 0; i < 10; i++) {
             System.out.println("main:" + i);
