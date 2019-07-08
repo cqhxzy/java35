@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 1000px;
+            height: 500px;
+        }
+        div.main{
+            background-color: darkseagreen;
+            border: 10px dotted black;
+            padding: 50px;
+            background-clip: content-box;
+        }
+
+        div.girl{
+            /* background-image: url('img/girl.jpg');
+            background-repeat: no-repeat; 
+            background-color: pink; */
+
+            background: pink url('img/girl.jpg') no-repeat center center;
+        }
+        div.icon{
+            width: 17px;
+            height: 15px;
+            background-color: gray;
+            background-image: url('img/search.ele.png');
+            background-position: 0px -415px;
+        }
+        div.icon:hover{
+            background-position-y: -438px;
+        }
+
+
+        div.big,div.big2,div.big3{
+            width: 900px;
+            height: 300px;
+            background-image: url('img/background.jpg');
+            background-repeat: no-repeat;
+            background-color: gray;
+            
+            transition: all 0.5s;
+        }
+
+        div.big{
+            background-size: 100%;
+        }
+        div.big:hover{
+            background-size: 110%;
+            background-position: 10% 10%;
+        }
+        
+        div.big2{
+            height: 500px;
+            background-size: cover;
+        }
+        div.big3{
+            height: 500px;
+            background-size: contain;
+        }
+        div.linear{
+            background: linear-gradient(to right,#fff,red,pink);
+        }
+        div.radial{
+            /*径向渐变*/
+            background:radial-gradient(circle,pink,red) 
+        }
+    </style>
+</head>
+<body>
+    <div class="main"></div>
+    <div class="girl"></div>
+    <div class="icon"></div>
+    <div class="big"></div>
+    <div class="big2"></div>
+    <div class="big3"></div>
+    <div class="linear"></div>
+    <div class="radial"></div>
+</body>
+</html>
