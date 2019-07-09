@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>固定定位</title>
+    <style>
+
+            .wrap{
+                font: normal bold 30px "微软雅黑";
+                color: #FFF;
+                width: 900px;
+                margin: 0 auto;
+                position: relative;
+            }
+    
+            .wrap div{
+                margin: 10px 0px;
+                border: 1px dashed black;
+                height: 500px;
+            }
+    
+            .wrap div:first-of-type{
+                background: brown;
+            }
+            .wrap div:nth-of-type(2){
+                background:cadetblue;
+            }
+            .wrap div:nth-of-type(3){
+                background:chocolate;
+            }
+            .wrap div:nth-of-type(4){
+                background:darkmagenta;
+            }
+            .fixed{
+                position: fixed;
+                right: 0;
+                bottom: 100px;
+            }
+
+            .fixed a{
+                display: block;
+                width: 100px;
+                line-height: 30px;
+                background: brown;
+                color: #FFF;
+                text-decoration: none;
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+        <div class="wrap">
+                <div>div1</div>
+                <div>div2</div>
+                <div>div3</div>
+                <div>div4</div>
+        </div>   
+        <aside class="fixed">
+            <a href="#">返回顶部</a>
+        </aside> 
+</body>
+</html>
