@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>相对定位</title>
+    <style>
+        .wrap{
+            font: normal bold 30px "微软雅黑";
+            color: #FFF;
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .wrap div{
+            margin: 10px 0px;
+            border: 1px dashed black;
+            height: 150px;
+        }
+
+        .wrap div:first-of-type{
+            background: brown;
+        }
+        .wrap div:nth-of-type(2){
+            background:cadetblue;
+            /*
+            相对定位
+            相对定位会参照其在标准文档流中的位置进行偏移。
+            标准文档流的位置为0点（left:0,top:0）
+            相对定位的元素，并不会脱离标准文档流
+            通常相对定位是和绝对定位一起搭配使用的。
+            */
+            position: relative;
+            left:100px;
+            top: 100px;
+            z-index: -1;
+        }
+        .wrap div:nth-of-type(3){
+            background:chocolate;
+        }
+        .wrap div:nth-of-type(4){
+            background:darkmagenta;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div>div1</div>
+        <div>div2</div>
+        <div>div3</div>
+        <div>div4</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            height: 200px;
+            background: #ccc;
+            /* border:1px solid red; */
+            border-top-color: red;
+            border-top-width: 10px;
+            border-top-style: dotted;
+
+            border-right-color: green;
+            border-right-width: 5px;
+            border-right-style: dashed;
+        }
+
+        div.arrow{
+            width: 0px;
+            height: 0px;
+            background: transparent;
+            border-color: transparent;
+            border-width: 50px;
+            border-style: solid;
+            
+            border-top-width: 75px;
+            border-bottom: 75px solid #000;
+        }
+
+        div.arrow:hover{
+            border-bottom-color:transparent;
+            border-top-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div class="arrow"></div>
+</body>
+</html>

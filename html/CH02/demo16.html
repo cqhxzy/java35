@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p{
+            margin: 10px 0px;
+            height: 100px;
+        }
+        div.wrap{
+            width: 200px;
+            margin: 10px auto;
+            border: 1px dashed black;
+
+            font: normal bold 20px "微软雅黑";
+            color: #FFF;
+        }
+
+        p:nth-of-type(1){
+            background:coral;
+        }
+        p:nth-of-type(2){
+            background:pink;
+            float: left;
+        }
+        p:nth-of-type(3){
+            background:crimson;
+        }
+
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        a{
+            text-decoration: none;
+        }
+        li {
+            float: left;
+            line-height: 50px;
+            padding: 0px 20px;
+        }
+        li:hover{
+            background:lightcoral;
+        }
+
+        .clear{
+            zoom: 1; /*解决IE浏览器不能清除浮动的问题*/
+        }
+
+        /*清除浮动*/
+        .clear::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <p>div1</p>
+        <p>div2</p>
+        <p>div3</p>
+    </div>
+    <nav>
+        <ul class="clear">
+            <li><a href="#">秒杀</a></li>
+            <li><a href="#">优惠券</a></li>
+            <li><a href="#">闪购</a></li>
+            <li><a href="#">PLUS会员</a></li>
+        </ul>
+    </nav>
+    <h1>另一个标题</h1>
+</body>
+</html>
