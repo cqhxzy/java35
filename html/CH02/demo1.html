@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .main{
+            color: red; /*字体颜色为红色*/
+        }
+
+        /*仅为class为main的div标签设置样式*/
+        div.main{
+            color: green;
+        }
+
+        /*
+            多个选择器，组合选择器
+            代表多个选择器使用同一个样式
+        */
+        h1,h2,h3,h4,h5,h6,.main{
+            margin: 0;  /*去除外边距*/
+            padding: 0; /*去除内边距*/
+        }
+    </style>
+</head>
+<body>
+    <h1 class="main">标题1</h1>
+    <p class="main">段落标签：p</p>
+    <div class="main">逻辑区域的div标签</div>
+</body>
+</html>
