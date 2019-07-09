@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绝对定位</title>
+    <style>
+            .wrap{
+                font: normal bold 30px "微软雅黑";
+                color: #FFF;
+                width: 500px;
+                margin: 0 auto;
+                position: relative;
+            }
+    
+            .wrap div{
+                margin: 10px 0px;
+                border: 1px dashed black;
+                height: 150px;
+            }
+    
+            .wrap div:first-of-type{
+                background: brown;
+            }
+            .wrap div:nth-of-type(2){
+                background:cadetblue;
+                /*
+                    使用了绝对定位的标签会脱离标准文档流
+                    脱离了标准文档流的元素，如果没有设置其宽度，则其宽度由其中的内容撑起来
+                    使用了绝对定位的元素可以通过z-index设置堆叠次序
+
+                    使用了绝对定位的元素会参照其最近的一个父级使用了定位（relativce,absolute,fixed）的元素进行偏移
+                    如果父级中没有使用了定位的元素，则参照浏览器的左上角进行偏移。
+                */
+                position: absolute;
+                width: 300px;
+                left: 200px;
+                top: -50px;
+                margin: 0;
+            }
+            .wrap div:nth-of-type(3){
+                background:chocolate;
+            }
+            .wrap div:nth-of-type(4){
+                background:darkmagenta;
+            }
+        </style>
+</head>
+<body>
+        <div class="wrap">
+            <div>div1</div>
+            <div>div2</div>
+            <div>div3</div>
+            <div>div4</div>
+        </div>
+</body>
+</html>
