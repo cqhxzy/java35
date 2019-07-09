@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>平移</title>
+    <style>
+        div{
+            width: 100px;
+            height: 50px;
+            background: #ccc;
+            margin: 20px;
+
+            transition: transform 0.3s linear 2s;
+        }
+
+        div img{
+            width: 100%;
+        }
+
+        div:first-of-type:hover{
+            transform: translate(-10px,0px);
+        }
+        div:nth-of-type(2):hover{
+            transform: translateY(20px);
+        }
+        div:nth-of-type(3):hover{
+            transform: scale(0.8);
+        }
+
+        div:nth-of-type(4):hover{
+            transform: scaleX(1.2);
+        }
+        div:nth-of-type(5):hover{
+            transform: scaleY(1.2);
+        }
+        div:nth-of-type(6):hover{
+            transform: skewX(45deg);
+        }
+        div:nth-of-type(7):hover{
+            transform: skewY(45deg);
+        }
+        div:nth-of-type(8):hover{
+            transform: rotate(-45deg);
+        }
+
+        div:last-of-type{
+            transition: width 0.5s linear;
+            float: right;
+        }
+
+        div:last-of-type:hover{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="img/1.jpg" />
+    </div>
+    <div>translateY</div>
+    <div>scale</div>
+    <div>scaleX</div>
+    <div>scaleY</div>
+    <div>skewX</div>
+    <div>skewY</div>
+    <div>rotate</div>
+    <div>width</div>
+</body>
+</html>

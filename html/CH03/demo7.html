@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画</title>
+    <style>
+        div{
+            width: 100px;
+            height: 50px;
+            background: #ccc;
+        }
+
+        @keyframes w{
+            from{
+                background: red;
+                color: #fff;
+            }
+
+            50%{
+                color: red;
+                font-weight: bold;
+            }
+
+            to{
+                width: 200px;
+                background: green;
+                color: yellow;
+            }
+        }
+
+        div.div1:hover{
+            animation: w 1s linear 0s infinite;
+        }
+        div.icon{
+            width: 100px;
+            height: 15px;
+            background-color: gray;
+            padding-left: 20px;
+        }
+        div.icon:hover i{
+            background-position-y: -438px;
+            animation: heart 0.5s linear infinite;
+        }
+        div.icon i{
+            display: inline-block;
+            width: 17px;
+            height: 20px;
+            
+            background-image: url('img/search.ele.png');
+            background-repeat: no-repeat;
+            background-position: 0px -415px;
+        }
+
+        @keyframes heart{
+            0%{
+                transform: scale(1);
+            }
+            50%{
+                transform: scale(0.8);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">宽度的变化</div>
+    <div class="icon">
+        <i></i>
+    </div>
+</body>
+</html>
