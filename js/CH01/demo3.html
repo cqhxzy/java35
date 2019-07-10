@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>typeof</title>
+    <script>
+        var i; //声明变量没赋值，则类型为undefined
+        console.log("i的类型：" + typeof(i));
+
+        var a = 3.14;
+        var b = 1314;
+        var c = ' ';
+        var d = true;
+        var arr = []; //数组
+        var obj = {}; //自定义的对象
+
+        console.log("a的类型：" + typeof(a));
+        console.log("b的类型：" + typeof(b));
+        console.log("c的类型：" + typeof(c));
+        console.log("d的类型：" + typeof(d));
+        console.log("arr的类型：" + typeof(arr));
+        console.log("obj的类型：" + typeof(obj));
+
+        var pi = '3.14';
+        var r = '5';
+
+        pi = Number.parseFloat(pi);//将字符串转换为数字
+        r = Number.parseInt(r);
+
+        var result = pi * Math.pow(r,2); 
+        console.log("半径为5的圆的面积：" + result);
+
+        console.log("Math.trunc:" + Math.trunc(3.1415926));
+        console.log("Math.sqrt:" + Math.sqrt(9));
+        var nan = isNaN("abc");//is Not a number
+        console.log("nan:" + nan);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
