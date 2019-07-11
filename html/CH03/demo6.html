@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        aside {
+            position: fixed;
+            right: 0;
+            top: 40%;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul li i {
+            width: 34px;
+            height: 35px;
+        }
+
+        li {
+            background: #7a6e6e;
+            position: relative;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            cursor: pointer;
+            /*手形*/
+            margin-bottom: 1px;
+        }
+
+        ul li i,
+        ul li span {
+            display: block;
+        }
+
+        ul li span {
+            width: 70px;
+            position: absolute;
+            top: 0;
+            left: 0px;
+            line-height: 35px;
+            background: #7a6e6e;
+            padding-left: 10px;
+            color: #FFF;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            z-index: -1;
+            transition: transform 0.3s linear;
+        }
+
+        .vip {
+            background: url('img/toolbars.png') no-repeat -88px -173px;
+        }
+
+        li:hover {
+            border-radius: 0px;
+            background: red;
+        }
+
+        li:hover span {
+            background: red;
+            transform: translateX(-80px);
+        }
+    </style>
+</head>
+
+<body style="height: 3000px;">
+    <aside>
+        <ul>
+            <li>
+                <i class="vip"></i>
+                <span>京东会员</span>
+            </li>
+            <li>
+                <i class="vip"></i>
+                <span>京东会员</span>
+            </li>
+            <li>
+                <i class="vip"></i>
+                <span>京东会员</span>
+            </li>
+            <li>
+                <i class="vip"></i>
+                <span>京东会员</span>
+            </li>
+        </ul>
+    </aside>
+</body>
+
+</html>

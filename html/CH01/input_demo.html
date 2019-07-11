@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单元素</title>
+</head>
+
+<body>
+    <form action="#" method="POST">
+        <table border="1" width="600" align="center">
+            <tr>
+                <td>
+                    <label for="userName">用户名</label>
+                </td>
+                <td>
+                    <input type="text" name="userName" id="userName" required placeholder="请输入用户名" />
+                    <!--隐藏域-->
+                    <input type="hidden" name="hidden" value="123456789">
+                </td>
+            </tr>
+            <tr>
+                <td>密码</td>
+                <td>
+                    <input type="password" name="userPwd" required placeholder="请输入密码" />
+                </td>
+            </tr>
+            <tr>
+                <td>性别</td>
+                <td>
+                    <label><input type="radio" name="sex" value="man" /> 男</label>
+                    <label><input type="radio" name="sex" value="woman" checked /> 女</label>
+                </td>
+            </tr>
+            <tr>
+                <td>爱好</td>
+                <td>
+                    <label><input type="checkbox" name="hobby" value="看书" /> 看书</label>
+                    <label><input type="checkbox" name="hobby" value="看电影" /> 看电影</label>
+                    <label><input type="checkbox" name="hobby" value="打王者" checked /> 打王者</label>
+                </td>
+            </tr>
+            <tr>
+                <td>邮箱</td>
+                <td>
+                    <input type="email" name="e" required />
+                </td>
+            </tr>
+            <tr>
+                <td>上传文件</td>
+                <td>
+                    <input type="file" name="fileupload" />
+                </td>
+            </tr>
+            <tr>
+                    <td>城市</td>
+                    <td>
+                        <select name="city">
+                            <option value="1">北京</option>
+                            <option value="1">上海</option>
+                            <option value="1">天津</option>
+                            <option value="1">重庆</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <!--表单提交时，会提交只读的属性-->
+                    <td>ID只读</td>
+                    <td>
+                        <input type="text" name="id" value="abc4564" readonly> 
+                    </td>
+                </tr>
+                <tr>
+                    <!--被禁用的元素不会被表单提交-->
+                    <td>禁用</td>
+                    <td>
+                        <input type="text" value="演示禁用" disabled>
+                    </td>
+                </tr>
+            <tr>
+                <td>普通按钮，需要绑定js事件</td>
+                <td>
+                    <input type="button" value="普通按钮" />
+                    <button type="button">也是普通按钮</button>
+                </td>
+            </tr>
+            <tr>
+                <td>重置按钮</td>
+                <td>
+                    <input type="reset" value="重置表单" />
+                    <button type="reset">也是重置按钮</button>
+                </td>
+            </tr>
+            <tr>
+                <td>提交表单</td>
+                <td>
+                    <input type="submit" value="提交表单">
+                    <button>提交</button>
+                </td>
+            </tr>
+            
+        </table>
+    </form>
+</body>
+
+</html>

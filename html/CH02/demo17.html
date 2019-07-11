@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .clear::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        div.row{
+            width: 306px;
+            border: 1px solid #ccc;
+        }
+        .row label{
+            display: block;
+            width: 37px;
+            height: 38px;
+            float: left;
+            background: url('img/pwd-icons-new.png') no-repeat 0px 0;
+            border-right: 1px solid #ccc;
+        }
+        .row input{
+            outline: none;
+            display: block;
+            float: left;
+            padding: 10px;
+            border: none;
+            line-height: 18px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="row clear">
+        <label></label>
+        <input type="text" />
+    </div>
+</body>
+</html>

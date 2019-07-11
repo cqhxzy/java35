@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>伪类样式</title>
+    <style>
+        a{
+            text-decoration: none;
+        }
+
+        a:hover{ /*当鼠标悬浮在a标签上时，a标签的样式*/
+            color: brown;
+            font-weight: bold;
+        }
+
+        div.wrap:hover span{
+            color: red;
+        }
+        div.wrap:hover p{
+            color: #fff;
+            background: gray;
+        }
+        ul{
+            list-style: none; /*去除有序或无序列表的项目符号*/
+        }
+    </style>
+</head>
+<body>
+    <h1>伪类样式</h1>
+    <ul>
+        <li>
+            <a href="#">链接1</a>
+        </li>
+        <li>
+            <a href="#">链接2</a>
+        </li>
+        <li>
+            <a href="#">链接3</a>
+        </li>
+        <li>
+            <a href="#">链接4</a>
+        </li>
+    </ul>
+    <h1>为伪类样式中的子标签设置样式</h1>
+    <div class="wrap">
+        <span>测试文本1</span>
+        <p>
+            测试的p标签
+        </p>
+    </div>
+</body>
+</html>

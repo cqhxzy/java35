@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body p:first-child{ /*匹配body中的第一个并且是其父级元素的第一个自己标签的p标签*/
+            color: red;
+
+        }
+        body p:nth-child(2){ /*匹配body中第二个元素，并且这个元素还必须是p标签*/
+            color: blue;
+        }
+        body p:last-child{
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <p>p1</p>
+    <p>p2</p>
+    <p>p3</p>
+    <ul>
+        <li>li1</li>
+        <li>li2</li>
+        <li>li3</li>
+    </ul>
+
+</body>
+
+</html>
