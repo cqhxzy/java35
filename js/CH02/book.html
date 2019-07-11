@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        body,input,div,p,{margin: 0;padding: 0;}
+        body{font-size: 14px; font-family: "微软雅黑"; line-height: 25px;}
+        .content{width: 550px; margin: 0 auto;}
+        .content img{ float: left; width: 150px;}
+        .r{float: left; width: 400px;}
+        input[name="changeBook"]{
+            width: 100px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            font-size: 14px; font-family: "微软雅黑";
+            margin: 10px 0 10px 0;
+        }
+        input[name="season"]{
+            width: 50px; text-align: center;
+        }
+    </style>
+</head>
+<body>
+        <div class="content">
+            <img src="images/book.jpg" alt="岛上书店"/>
+            <div class="r">
+                <div id="book">书名：岛上书店</div>
+                <input name="changeBook" value="换换名称" type="button" onclick="alterBook();" /><br>
+                四季名称：
+                <input name="season" type="text" value="春" />
+                <input name="season" type="text" value="夏" />
+                <input name="season" type="text" value="秋" />
+                <input name="season" type="text" value="冬" /><br><br>
+                <input name="b2" type="button" value="input内容" onclick= "all_input()" />
+                <input name="b3" type="button" value="四季名称" onclick="s_input()" />
+                <input name="b4" type="button" value="清空页面内容" onclick="clearAll()" />
+                <p id="replace"></p>
+            </div>
+        </div>
+        <script>
+            function alterBook(){
+                let book = document.getElementById("book");
+                /*
+                标签通过innerHtml和innerText属性可以修改其内容
+                innerHTML可以指定普通文本及html标签
+                innerText只能够将普通文本作为标签的值
+                */
+                //book.innerText = "现象级畅销书";
+                book.innerHTML = "<span style='color:red;font-weight:bold;'>现象级畅销书</span>";
+                //book.innerText = "<span style='color:red;font-weight:bold;'>现象级畅销书</span>"; 
+            }
+            function all_input(){
+                let all_input = document.getElementsByTagName("input");
+                let str = ''; //空的字符串
+                for (const key in all_input) {
+                    if (all_input.hasOwnProperty(key)) {
+                        const element = all_input[key]; //每个input标签的对象
+                        //console.log(element);
+                        //表单元素input标签获取其值，通过value属性实现
+                        let value = element.value;
+                        str = str + value + " ";
+                    }
+                }
+                //console.log(str);
+                let replace = document.getElementById("replace");
+                replace.innerText = str;
+            }
+
+            function s_input(){
+                let str = '';
+                let season = document.getElementsByName("season");
+                for (const key in season) {
+                    if (season.hasOwnProperty(key)) {
+                        const element = season[key];
+                        str += element.value + "&nbsp;";
+                    }
+                }
+                let replace = document.getElementById("replace");
+                replace.innerHTML = str;
+            }
+
+            function clearAll(){
+                document.getElementsByClassName("content")[0].innerHTML = '';
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body onclick="bodyClick()">
+
+        <div onclick="divClick()">
+            <button onclick="btn()">
+                <p onclick="p(event)">点击冒泡</p>
+            </button>
+        </div>
+        <script>
+            
+            function p(e){
+                console.log('p标签被点击')
+                if(e && e.stopPropagation){//解决浏览器兼容性的问题
+                    e.stopPropagation();//在非IE浏览器中阻止事件冒泡
+                } else{
+                    window.event.cancelBubble = true;//在IE浏览器中阻止事件冒泡
+                }
+            }
+            function btn(){
+                console.log("button被点击")
+            }
+                function divClick(event){
+                    console.log('div被点击');
+                }
+            function bodyClick(){
+                console.log('body被点击')
+            }
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div class="show">1</div>
+    <div class="show">2</div>
+    <div class="show">3</div>
+    <div>3</div>
+    <script>
+        let show = document.querySelector(".show"); //获取第一个class为show的标签对象
+        //console.log(show);
+
+        let shows = document.querySelectorAll(".show"); //获取所有使用了class为show的标签对象，返回数组
+        console.log(shows);
+    </script>
+</body>
+</html>
