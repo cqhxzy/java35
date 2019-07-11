@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <button>
+            <p>点击捕获</p>
+        </button>
+    </div>
+    <script>
+        //为p标签的父级标签都绑定事件监听
+        var oP = document.querySelector('p');
+        var oB = document.querySelector('button');
+        var oD = document.querySelector('div');
+        var oBody = document.querySelector('body');
+
+        oP.addEventListener('click', function () {
+            console.log('p标签被点击')
+        }, true);
+
+        oB.addEventListener('click', function () {
+            console.log("button被点击")
+        }, true);
+
+        oD.addEventListener('click', function () {
+            console.log('div被点击')
+        }, true);
+
+        oBody.addEventListener('click', function () {
+            console.log('body被点击')
+        }, true);
+    </script>
+
+
+</body>
+
+</html>
