@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = () => {
+            fn_clock();
+        }
+        // setTimeout(() => {   //间隔多长时间后，执行一次的函数
+        //     let ad = document.getElementById("ad");
+        //     ad.className = "ad show"; //为ad标签增加show类选择器
+        // }, 3000);
+
+        var interval = setInterval(() => {  //每间隔多长时间重复执行的函数
+            fn_clock();
+        }, 1000);
+
+        function fn_clock(){
+            let clock = document.getElementById("clock");
+
+            //获取当前时间
+            let date = new Date();
+            //console.log(date);
+            //获取年份
+            let year = date.getFullYear();
+            let month = date.getMonth() + 1;
+            let date_str = date.getDate();
+            let hour = date.getHours();
+            let min = date.getMinutes();
+            let seconds = date.getSeconds();
+            let day = date.getDay();
+
+            let str = year + "年" + month + "月" + date_str + "日 " + hour + ":" + min + ":" + seconds + " " + day
+
+            clock.innerText = str;
+        }
+
+        function stop(btn){
+            let text = btn.innerHTML; //因为button按钮是表单元素，因此获取其文本值需要通过value属性
+
+            if(text == '停止计时'){
+                btn.innerHTML = '开始计时';
+                 //停止计时器
+                //clearTimeout() //停止setTimeout的计时器的函数
+                clearInterval(interval); //停止setIntervael计时器的函数
+            } else {
+                btn.innerHTML = '停止计时';
+                interval = setInterval(() => {  //每间隔多长时间重复执行的函数
+                    fn_clock();
+                }, 1000);
+            }
+        }
+    </script>
+    <style>
+        .ad {
+            width: 800px;
+            height: 500px;
+            background: red;
+            margin: 0 auto;
+            display: none;
+
+            opacity: 0; /*透明的*/
+            transition: opacity 0.2s linear;
+        }
+
+        .show{
+            display: block;
+            opacity: 1 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="clock"></div>
+    <div id="ad" class="ad"></div>
+    <button onclick="stop(this)">停止计时</button>
+</body>
+
+</html>
