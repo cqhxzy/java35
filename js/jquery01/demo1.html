@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--使用jQuery的第一步，必须保证引入jquery脚本文件-->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script>
+        function fn_click(){
+
+        }
+
+        //传统的JavaScript初始化页面的事件
+        window.onload=function(){
+            //页面加载完所需资源后触发的事件
+            console.log("window.onload:页面加载完毕");
+        }
+
+        
+        //传统的js中，对象都是js的对象，具有自己的属性和函数
+        //jquery是对js的包装，因此jquery本身提供了一系列的属性和方法。 jquery的对象和js的对象是不一样的。
+        //jquery： Jquery.函数（）   $ 和 Jquery是等价
+        //jquery初始化页面的事件
+
+        //$(document) ：将document转换为jquery的对象
+        //因此我们知道：通过$(js对象) 将其转换为jquery对象。
+        $(document).ready(function(){ 
+            console.log("jquery ready:页面加载完毕");
+        });
+
+        //jquery提倡的是write less,do more
+        $(function(){
+            console.log("jquery 简化过的页面加载完毕后触发的事件");
+        });
+    </script>
+</head>
+<body>
+    <button onclick="fn_click()">点我</button>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>为元素绑定事件</title>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script>
+        $(function(){
+            //在这里面为页面的标签绑定事件
+            let btn = document.getElementsByTagName("button")[0];  //JavaScript对象
+            console.log(btn);
+
+             //  $(选择器)   得到一个包装了选择器所对应的页面标签的对象，返回的是jquery的对象
+            console.log( $("button"));
+            $("#btn"); //获取id为btn的按钮
+            $(".btn"); //获取所有class为btn的标签
+        });
+        
+    </script>
+</head>
+<body>
+    <button>点我</button>
+    <button id="btn">第二个按钮</button>
+    <button class="btn"> 第三个按钮</button>
+</body>
+</html>
