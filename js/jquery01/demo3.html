@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script>
+        $(function(){
+            $(":checkbox:first").change(function(){
+                //let status = $(":checkbox:first").prop("checked"); //获取该复选框的选中状态
+                //console.log(this); //this只选择器所匹配的对象
+                //将js对象转换为jquery对象， $(this)
+                let status = $(this).prop("checked");
+                //console.log(status);
+
+                let myAttr = $(this).attr("my-attr");
+                console.log(myAttr);
+                $(this).removeAttr("my-attr");
+
+                // $("input[name='ch']")
+                // $(":checkbox:not(:first)")  //jquery选择器得到的对象实质上是一个集合
+                //jquery提供了foreach用于遍历对象中的元素
+                //console.log($("input[name='ch']"));
+                // $("input[name='ch']").each(function(index,element){
+                //     //console.log(index);  //index为集合中每个元素的下标
+                //     //console.log(element); //element只每个标签的对象， element是js对象
+                //     $(element).prop("checked",status);
+                // });
+
+                $("input[name='ch']").prop("checked",status);
+            });
+        });
+    </script>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td><label>操作<input type="checkbox" my-attr="aaa" /></label></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="ch">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="ch">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="ch">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="ch">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="ch">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="ch">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="ch">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="ch">
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
