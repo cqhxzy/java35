@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">DOM事件流</button>
+    <script>
+        var btn = document.getElementById("btn");
+        btn.onclick = function (event) {  //为btn绑定单击事件
+            console.log("button 处于目标阶段");
+        };
+        document.body.addEventListener("click", function (event) {
+            console.log("event bubble 事件冒泡");
+        }, false); //false，在事件冒泡期间生效
+        document.body.addEventListener("click", function (event) {
+            console.log("event catch 事件捕获");
+        }, true); //true说明在事件捕获期间生效
+    </script>
+
+</body>
+
+</html>

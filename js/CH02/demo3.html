@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="alert('你点击了按钮');">单击事件</button>
+    <button ondblclick="alert('你双击了按钮');">单击事件</button>
+    <button onmouseover="alert('鼠标悬浮事件');">单击事件</button>
+    <button onmouseout="alert('鼠标移开的事件');">单击事件</button>
+
+    <form action="#" onsubmit="return fn_submit()">
+        <div><input type="text" onfocus="console.log('input获取焦点')" onblur="console.log('input失去焦点')"></div>
+        <div><input type="text" onchange="console.log('input内容发生变化')" oninput="console.log('input内容发生变化')"></div>
+        <div>
+            <select onchange="console.log('下拉菜单选项发生改变')">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+        <button>提交表单</button>
+    </form>
+    <script> 
+        function fn_submit(){
+            //表单在提交时，触发onsubmit事件
+            //onsubmit事件需要返回一个布尔值，return true,提交表单，  return false 取消提交表单
+            console.log("触发了表单提交事件");
+            return true;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>完善当当购物车页面</title>
+    <link type="text/css" rel="stylesheet" href="css/cartStyle.css" />
+    <script src="js/shopping.js"></script>
+</head>
+<body>
+
+<div class="content">
+    <div class="logo">
+        <img src="images/dd_logo.jpg"><span>关闭</span>
+    </div>
+    <div class="cartList">
+        <ul>
+            <li>¥<input type="text" name="price" value="21.90"></li>
+            <li><input type="button" name="minus" value="-" onclick="minus(event)"><input type="text" name="amount" value="1"><input type="button" name="plus" value="+" onclick="plus(event)"></li>
+            <li id="price0" name="total">¥21.90</li>
+            <li><p>移入收藏</p><p>删除</p></li>
+        </ul>
+        <ul>
+            <li>¥<input type="text" name="price" value="24.00"></li>
+            <li><input type="button" name="minus" value="-" onclick="minus(event)"><input type="text" name="amount" value="1" ><input type="button" name="plus" value="+" onclick="plus(event)"></li>
+            <li id="price1" name="total">¥24.00</li>
+            <li><p>移入收藏</p><p>删除</p></li>
+        </ul>
+        <ol>
+            <li id="totalPrice">&nbsp;</li>
+            <li><span>结 算</span></li>
+        </ol>
+    </div>
+</div>
+</body>
+</html>
