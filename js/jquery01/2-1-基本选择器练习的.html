@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		
+		<title>基本选择器</title>
+		
+		<link rel="stylesheet" href="css/style.css" />
+		 
+	</head>
+
+	<body>
+
+		<button id="reset">手动重置页面元素</button>
+		<input type="checkbox" id="isreset" checked="checked" /><label for="isreset">点击下列按钮时先自动重置页面</label><br /><br />
+		<h3>基本选择器.</h3>
+
+		<!-- 控制按钮 -->
+		<input type="button" value="选择 id为 one 的元素." id="btn1" />
+		<input type="button" value="选择 class 为 mini 的所有元素." id="btn2" />
+		<input type="button" value="选择 元素名是 div 的所有元素." id="btn3" />
+		<input type="button" value="选择 所有的元素." id="btn4" />
+		<input type="button" value="选择 所有的span元素和id为two的元素." id="btn5" />
+
+		<br /><br />
+
+		<!-- 测试的元素 -->
+		<div class="one" id="one">
+			id为one,class为one的div
+			<div class="mini">class为mini</div>
+		</div>
+
+		<div class="one" id="two" title="test">
+			id为two,class为one,title为test的div.
+			<div class="mini" title="other">class为mini,title为other</div>
+			<div class="mini" title="test">class为mini,title为test</div>
+		</div>
+
+		<div class="one">
+			<div class="mini">class为mini</div>
+			<div class="mini">class为mini</div>
+			<div class="mini">class为mini</div>
+			<div class="mini"></div>
+		</div>
+
+		<div class="one">
+			<div class="mini">class为mini</div>
+			<div class="mini">class为mini</div>
+			<div class="mini">class为mini</div>
+			<div class="mini" title="tesst">class为mini,title为tesst</div>
+		</div>
+
+		<div style="display:none;" class="none">
+			style的display为"none"的div
+		</div>
+
+		<div class="hide">class为"hide"的div</div>
+
+		<div>
+			包含input的type为"hidden"的div<input type="hidden" size="8" />
+		</div>
+
+		<span id="mover">正在执行动画的span元素.</span>
+
+	</body>
+
+
+       <!--引用jquery-->
+       <script type="text/javascript" src="js/jquery-1.11.3.min.js" ></script>
+       <script type="text/javascript" src="js/assist.js" ></script>
+
+		<script type="text/javascript">
+			
+			$(document).ready(function() {
+				//选择 id为 one 的元素
+				//js中的事件，在jquery中都没有on
+				$("#btn1").click(function(){
+					//$("#one").css("backgroundColor","#bbffaa"); //为id为one的元素设置样式
+
+					//如果要同时设置多个样式，css函数中传递的就应该是一个对象
+					$("#one").css({ //通过行内样式为标签设置样式
+						"backgroundColor":"#bbffaa",
+						"color":"#FFF"
+					});
+				});
+
+
+				//选择 class 为 mini 的所有元素
+				$("#btn2").click(function(){
+					$(".mini").css("backgroundColor","#bbffaa");
+				});
+				
+
+				//选择 元素名是 div 的所有元素
+				$("#btn3").click(function(){
+					$("div").css("backgroundColor","#bbffaa");
+				});
+
+				//选择 所有的元素
+				$("#btn4").click(function(){
+					$("*").css("backgroundColor","#bbffaa");
+				});
+
+				//选择 所有的span元素和id为two的div元素
+				 $("#btn5").click(function(){
+					 $("span,#two").css("backgroundColor","#bbffaa");
+				 });
+			});
+		</script>
+</html>
