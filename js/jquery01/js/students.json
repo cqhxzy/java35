@@ -1,0 +1,27 @@
+[
+    {
+        "stuName":"张三",
+        "stuAge":18,
+        "stuSex":"男"
+    },
+    {
+        "stuName":"李四",
+        "stuAge":18,
+        "stuSex":"男"
+    },
+    {
+        "stuName":"王五",
+        "stuAge":18,
+        "stuSex":"男"
+    },
+    {
+        "stuName":"赵柳",
+        "stuAge":18,
+        "stuSex":"男"
+    }
+    ,{
+        "stuName":"张三丰",
+        "stuAge":18,
+        "stuSex":"男"
+    }
+]

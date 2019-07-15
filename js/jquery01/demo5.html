@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            width: 800px;
+            margin: 0 auto;
+            border-collapse:collapse; /*使表格相邻的边框被合并*/
+            border-spacing:0; /*边框间的间距*/
+        }
+        th,td{
+            border: 1px solid #000; /*给td设置边框*/
+            text-align: center;
+        }
+        td{
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>13123</td>
+                <td>小123</td>
+                <td>
+                    <button>删除</button>
+                </td>
+            </tr>
+            <tr>
+                <td>13123</td>
+                <td>小123</td>
+                <td>
+                    <button>删除</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button id='btnAdd'>最后插入数据</button>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script>
+        $(function(){
+            $('#btnAdd').click(function(){
+                let ran = Math.ceil(Math.random() * 10000);
+                let obj = {id:ran};
+                obj.name = '小' + ran;
+
+                let template =`<tr>
+                                    <td>${obj.id}</td>
+                                    <td>${obj.name}</td>
+                                    <td>
+                                        <button>删除</button>
+                                    </td>
+                                </tr>`;
+              $('table > tbody').append($(template));                  
+            });
+
+            // $('button:not(#btnAdd)').click(function(){
+            //     alert(123);
+            // });
+
+            //基于事件捕获，从整个document开始从上往下，直到执行到目标阶段，为其动态绑定click事件
+            $("table").on('click','button',function(){
+                $(this).parents('tr').remove(); //删除被点击的按钮的行
+            });
+
+
+
+
+        });
+
+       
+
+        
+    </script>
+</body>
+</html>
