@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script>
+    
+        $(function(){
+
+
+
+
+                $("form").submit(function(event){
+
+
+                    //阻止表单的默认行为
+                    event.preventDefault();
+
+                //     let userName = $('input[name=username]').val();
+                //     let single = $('[name=single]').val(); //获取被选中的下拉列表
+                //     $.ajax({
+                //         url:"#",
+                //         type:"POST",  //请求方式，通常使用GET或者POST，
+                //         dataType:"json",  //预期服务器会返回json对象回来
+                //         async:true,     //本次请求时异步的还是同步的，默认是异步的。异步为true，同步为false
+                //         //data:'userName='+ userName + '&single=' + single,
+                //         //data:{"userName":userName,"single":single},
+                //         data:$("form").serialize(),
+                //         success:function(data){  //当本次请求成功后，执行的函数
+                //                     //data为服务器返回的数据，data的类型为dataType指定的类型
+                //         },
+                //         error:function(){ //当本次请求发生错误时，触发的函数
+
+                //         }
+                //     });
+
+                // });
+
+                let str = $("form").serialize();
+                $("#results").append(str);
+            });
+        })
+    </script>
+</head>
+<body>
+        <p id="results"><b>Results: </b> </p>
+        <form action="#">
+          <select name="single">
+            <option>Single</option>
+            <option>Single2</option>
+          </select>
+          <select name="multiple" multiple="multiple">
+            <option selected="selected">Multiple</option>
+            <option>Multiple2</option>
+            <option selected="selected">Multiple3</option>
+          </select><br/>
+          <input type="checkbox" name="check" value="check1"/> check1
+          <input type="checkbox" name="check" value="check2" checked="checked"/> check2
+          <input type="radio" name="radio" value="radio1" checked="checked"/> radio1
+          <input type="radio" name="radio" value="radio2"/> radio2
+          <input type="text" name="user" value="defualtuser"/> user
+          <p><button>提交</button></p>
+        </form>
+</body>
+</html>

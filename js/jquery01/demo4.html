@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script>
+        $(function(){
+            //console.log($("button"));
+            $("button").click(function(){
+                //html()   text()      innerHTML,innerText
+                //$(this)   每次循环，得到的当前对象，
+                let isClick = $(this).hasClass("isClick")   //判断当前button按钮是否包含isClick的类选择器
+                //console.log(isClick);
+                if(!isClick){
+                    //jquery支持链式编程
+                    $(this).addClass('isClick').html('停止计时');
+                } else {
+                    $(this).removeClass('isClick').html('开始计时');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>开始计时</button>
+</body>
+</html>

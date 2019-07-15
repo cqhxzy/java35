@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script>
+        $(function(){
+
+            $.ajax({
+                url:"js/books.json",
+                type:"GET",
+                async:true,
+                dataType:"json",
+                //jsonpCallback:"?",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+                success:function(json){
+                    //console.log(json);
+                    for (var key in json) {
+                        if (json.hasOwnProperty(key)) {
+                            var element = json[key];
+                           // console.log(element.author);
+                            $("div").append(element.author + "<br />");
+                        }
+                    }
+                }
+                
+            });
+            let encode = encodeURI('你好');  //将中文转换为url编码
+            console.log(encode);
+
+            let decode = decodeURI(encode); //将url编码转换为支持中文的编码
+            console.log(decode);
+        });
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
