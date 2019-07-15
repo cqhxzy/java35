@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <style>
+        table{
+            width: 800px;
+            margin: 0 auto;
+            border-collapse:collapse; /*使表格相邻的边框被合并*/
+            border-spacing:0; /*边框间的间距*/
+        }
+        th,td{
+            border: 1px solid #000; /*给td设置边框*/
+            text-align: center;
+        }
+        td{
+            line-height: 50px;
+
+        }
+        td:first-child{
+            width: 220px;
+        }
+        td:last-child{
+            text-align: left;
+            padding-left: 50px;
+        }
+    </style>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script>
+        $(function(){
+            $("form").submit(function(event){
+                //阻止表单的默认行为
+                event.preventDefault();
+
+                $(":text,:password").each(function(){
+                    let value = $(this).val();
+                    //得到提示信息
+                    let text = $(this).parents("tr").find("td:first label").text();
+
+                    //非空验证
+                    if(value == '' || value == undefined || value == null){
+                        
+                        //alert("请输入" + text);
+                        removeSpan();
+                        let str = '<span style="color:red;font-weigth:bold;">请输入'+text+'</span>';
+                        //使当前的文本框或密码框获取焦点
+                        $(this).focus(); 
+                        $(this).parent().append(str);
+                        return false; //终止本次循环
+                    }
+
+                    let min = $(this).attr("min-len"); //获取自定义的min-len属性
+                    if(min){
+                        min = parseInt(min); //将字符串转换为数字
+                        if(value.length < min) {
+                            let str = '<span style="color:red;font-weigth:bold;">'+text+'长度必须大于'+min+'位</span>';
+                            removeSpan();
+                            $(this).parent().append(str);
+                            return false;
+                        }
+                    }
+
+                    let max = $(this).attr("max_len");
+                    if(max){
+                        max = parseInt(max);
+                        if(value.length > max){
+                            let str = '<span style="color:red;font-weigth:bold;">'+text+'长度必须小等于于'+max+'位</span>';
+                            removeSpan();
+                            $(this).parent().append(str);
+                            return false;
+                        }
+                    }
+
+
+                    let str_regex = '/' + $(this).attr("my_pattern") + '/';
+
+                    //将字符串的正则表达式转换为正则表达式
+                    let regex = eval(str_regex);
+                    if(!regex.test(value)){
+                        $(this).focus(); 
+
+                        removeSpan();
+                        let str = '<span style="color:red;font-weigth:bold;">'+text+'不符合规范</span>';
+                        $(this).parent().append(str);
+                        return false;
+                    }
+                });
+
+            });
+
+        });
+
+        function removeSpan(){
+            $("td span").remove();
+        }
+    </script>
+</head>
+<body>
+    <form >
+            <table>
+                <caption><h1>注册</h1></caption>
+                
+                <tbody>
+                    <tr>
+                        <td><label for="userName">用户名</label></td>
+                        <td>
+                            <input type="text" min-len="6" max_len="16" my_pattern="^[a-zA-Z]{6,16}$" id="userName" name="userName" placeholder="请输入用户名">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="userPwd">密码</label></td>
+                        <td>
+                            <input type="text" id="userPwd" name="userPwd" placeholder="请输入密码">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="confirm_userPwd">确认密码</label></td>
+                        <td>
+                            <input type="text" id="confirm_userPwd" placeholder="请再次输入密码">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button>注册</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </form>
+</body>
+</html>

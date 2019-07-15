@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script>
+        $(function(){
+            //遍历jquery选择器得到的标签对象
+            $("li").each(function(index,item){  //index代表下标，第二个参数item，代表当前的标签对象
+                //console.log($(this).text())
+            });
+
+            let arr = ['a','b','c','d','e'];
+
+            $.each(arr,function(index,item){ //每次遍历集合的时候，做的事情
+                //console.log(index);  //下标
+                //console.log(item);   //当前下标对应的元素
+            });
+
+            //省份及城市
+            let provinces = [
+                    {
+                        province:'重庆市',
+                        cityes:['渝北区','江北区','南岸区','沙坪坝区']
+                    },
+                    {
+                        province:'北京市',
+                        cityes:['海淀区','朝阳区','昌平区']
+                    }
+
+                ];
+            
+            for (const key in provinces) {
+                if (provinces.hasOwnProperty(key)) {
+                    const element = provinces[key];
+                    let str = `<option value='${key}'>${element.province}</option>`;
+                    $("select[name='province']").append($(str));
+                }
+            }
+
+            let p_value = $("select[name='province']").val();
+            //console.log(p_value)   //获取当前省份的value值
+            let cityes = provinces[p_value].cityes;
+            //console.log(cityes);
+
+            changeCity(cityes);
+
+            $("#province").change(function(){
+                let value = $(this).val();  //获取被选中的option的value
+                let city = provinces[value].cityes;
+                changeCity(city);
+            });
+        })
+
+        function changeCity(arr){
+            $("#city").empty();  //首先清空城市列表
+            for (const key in arr) {
+                if (arr.hasOwnProperty(key)) {
+                    const city = arr[key];
+                    //console.log(city);
+                    let str = `<option value='${key}'>${city}</option>`;
+                    $("#city").append($(str));
+                }
+            }
+        }
+
+        let userName_regex = /^[a-zA-Z]{6,16}$/;
+        let isTrue = userName_regex.test("abcdef23g")
+        console.log(isTrue);
+    </script>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <!--直辖市-->
+    <select name="province" id="province">
+        <!-- <option value=""></option> -->
+    </select>
+
+    <!--区-->
+    <select name="city" id="city"></select>
+</body>
+</html>
