@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            width: 800px;
+            margin: 0 auto;
+            border-collapse:collapse; /*使表格相邻的边框被合并*/
+            border-spacing:0; /*边框间的间距*/
+        }
+        th,td{
+            border: 1px solid #000; /*给td设置边框*/
+            text-align: center;
+        }
+        td{
+            line-height: 50px;
+        }
+    </style>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script>
+        $(function(){
+
+            fn_initTab(); //初始化表格
+
+            $("table").on('click','input[type=button]',function(){
+                $(this).parents("tr").remove();
+            });
+        });
+
+        function fn_initTab(){
+            //通过异步的方式请求学生信息
+            $.ajax({
+                url:"js/students.json",  //要请求的url地址
+                type:"GET",     //请求方式，默认为GET
+                async:true,  //发起异步请求，默认为true
+                dataType:"json",  //服务器返回的数据类型
+                beforeSend:function(){
+                    console.log("准备请求服务器");
+                },
+                success:function(data){  //请求成功后执行的函数
+                    //console.log(data);
+                    let obj = '{"name":"test","age":18}'; //具有json格式的字符串
+                    let json_obj = JSON.parse(obj);   //将字符串转换为js对象
+                    //console.log(json_obj);
+
+                    let o = {name:'test',age:18};
+                    let json_o = JSON.stringify(o);//将js对象转换为json的字符串
+                    // console.log(json_o);
+
+                    
+                    for (const key in data) {
+                        if (data.hasOwnProperty(key)) {
+                            const element = data[key];
+                            console.log(element);
+
+
+                            let str = `
+                                <tr>
+                                    <td>${element.stuName}</td>
+                                    <td>${element.stuAge}</td>
+                                    <td>${element.stuSex}</td>
+                                    <td>
+                                        <input type="button" value="删除" />
+                                    </td>
+                                </tr>
+                            `;
+                            $("table tbody").append($(str));
+                        }
+                    }
+                },
+                complete:function(){
+                    console.log("接收服务器请求完成");
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+        <table>
+            <caption><h1>学生信息表</h1></caption>
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>性别</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+</body>
+</html>
