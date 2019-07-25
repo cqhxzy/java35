@@ -94,7 +94,7 @@ public class TCPClient {
 				System.out.println("等待服务器下发数据。。。。");
 				dis = new DataInputStream(client.getInputStream());
 				while (true) {
-					String msg = dis.readUTF();
+					String msg = dis.readUTF(); //阻塞的，直到服务器下发了一条消息
 					System.out.println("我是客户端，得到服务器下推的消息：" + msg);
 					//把服务器下推的消息放入文本框
 					LogUtils.showLog(msg, clientFrame.getTextArea());
