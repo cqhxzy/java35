@@ -3,8 +3,6 @@ package demo01;
 import org.junit.Test;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -30,7 +28,9 @@ public class Demo01Test {
     @Test
     public void testUpdate(){
         Demo01 demo01 = new Demo01();
-        int i = demo01.executeUpdate("update tab_my_test set name='张三' where id = 8");
+        String name = "张三"; //;drop database mysql;
+        int id = 8;
+        int i = demo01.executeUpdate("update tab_my_test set name='"+name+"' where id = "+id);
         assertThat(i,greaterThan(0));
     }
 
