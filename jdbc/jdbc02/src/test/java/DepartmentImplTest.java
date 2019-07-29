@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 import static org.hamcrest.Matchers.*;
@@ -27,5 +29,12 @@ public class DepartmentImplTest {
     public void remove() {
         int remove = departMent.remove(50);
         assertThat(remove,greaterThan(0));
+    }
+
+
+    @Test
+    public void queryAll1(){
+        List<Department> departments = departMent.queryAll(2, 3);
+        departments.stream().forEach(System.out::println);
     }
 }

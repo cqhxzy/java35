@@ -1,3 +1,6 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DepartmentImpl extends JDBCUtil implements IDepartMent{
@@ -26,6 +29,12 @@ public class DepartmentImpl extends JDBCUtil implements IDepartMent{
 
     @Override
     public List<Department> queryAll(int pageIndex, int pageSize) {
-        return null;
+        String sql = "select deptId,deptName,deptAddress from department limit ?,? ";
+        int begin = ( pageIndex - 1 ) * pageSize;
+        int end = pageSize;
+
+        return super.queryAll(Department.class,sql,begin,end);
     }
+
+
 }
