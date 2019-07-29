@@ -8,6 +8,6 @@ public class JdbcUtilTest {
         String sql = "select deptId,deptName,deptAddress from department limit ?,? ";
         int pageIndex = 1; //当前页码
         int pageSize = 3; //每页显示的数目
-        util.queryAll(null,sql,(pageIndex - 1) * pageSize,pageSize);
+        //util.queryAll(null,sql,(pageIndex - 1) * pageSize,pageSize);
     }
 }

@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fdc7532-bc91-46e2-81cb-8475a70091e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/JdbcUtilTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/EmployeeImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/IEmployee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ResultSetConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/EmployeeImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DepartmentImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DepartmentImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/IDepartMent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IDepartMent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/JDBCUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JDBCUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/DepartmentImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DepartmentImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/JdbcUtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/JdbcUtilTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -29,7 +34,7 @@
         <counts>
           <entry key="0-SNAPSHOT" value="1" />
           <entry key="class" value="19" />
-          <entry key="java" value="22" />
+          <entry key="java" value="32" />
           <entry key="properties" value="1" />
           <entry key="xml" value="4" />
         </counts>
@@ -37,7 +42,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="19" />
-          <entry key="JAVA" value="22" />
+          <entry key="JAVA" value="32" />
           <entry key="Properties" value="1" />
           <entry key="UML" value="1" />
           <entry key="XML" value="4" />
@@ -45,16 +50,16 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="4755" />
+          <entry key="java" value="7263" />
           <entry key="properties" value="79" />
-          <entry key="txt" value="11" />
+          <entry key="txt" value="24" />
           <entry key="xml" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4755" />
-          <entry key="PLAIN_TEXT" value="11" />
+          <entry key="JAVA" value="7263" />
+          <entry key="PLAIN_TEXT" value="24" />
           <entry key="Properties" value="79" />
           <entry key="XML" value="33" />
         </counts>
@@ -66,11 +71,113 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/DepartmentImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="745">
-              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+            <state relative-caret-position="495">
+              <caret line="25" column="30" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Employee.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1187#1188#0" expanded="true" />
+                <element signature="e#1229#1230#0" expanded="true" />
+                <element signature="e#1258#1259#0" expanded="true" />
+                <element signature="e#1286#1287#0" expanded="true" />
+                <element signature="e#1325#1326#0" expanded="true" />
+                <element signature="e#1359#1360#0" expanded="true" />
+                <element signature="e#1393#1394#0" expanded="true" />
+                <element signature="e#1423#1424#0" expanded="true" />
+                <element signature="e#1469#1470#0" expanded="true" />
+                <element signature="e#1507#1508#0" expanded="true" />
+                <element signature="e#1545#1546#0" expanded="true" />
+                <element signature="e#1579#1580#0" expanded="true" />
+                <element signature="e#1633#1634#0" expanded="true" />
+                <element signature="e#1679#1680#0" expanded="true" />
+                <element signature="e#1710#1711#0" expanded="true" />
+                <element signature="e#1735#1736#0" expanded="true" />
+                <element signature="e#1773#1774#0" expanded="true" />
+                <element signature="e#1801#1802#0" expanded="true" />
+                <element signature="e#1835#1836#0" expanded="true" />
+                <element signature="e#1867#1868#0" expanded="true" />
+                <element signature="e#1915#1916#0" expanded="true" />
+                <element signature="e#1957#1958#0" expanded="true" />
+                <element signature="e#1993#1994#0" expanded="true" />
+                <element signature="e#2025#2026#0" expanded="true" />
+                <element signature="e#2075#2076#0" expanded="true" />
+                <element signature="e#2117#2118#0" expanded="true" />
+                <element signature="e#2149#2150#0" expanded="true" />
+                <element signature="e#2177#2178#0" expanded="true" />
+                <element signature="e#2219#2220#0" expanded="true" />
+                <element signature="e#2248#2249#0" expanded="true" />
+                <element signature="e#2289#2290#0" expanded="true" />
+                <element signature="e#2322#2323#0" expanded="true" />
+                <element signature="e#2378#2379#0" expanded="true" />
+                <element signature="e#2422#2423#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/EmployeeImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="124" lean-forward="true" selection-start-line="124" selection-end-line="124" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#126#127#0" expanded="true" />
+                <element signature="e#150#151#0" expanded="true" />
+                <element signature="e#208#209#0" expanded="true" />
+                <element signature="e#232#233#0" expanded="true" />
+                <element signature="e#282#283#0" expanded="true" />
+                <element signature="e#306#307#0" expanded="true" />
+                <element signature="e#5778#5779#0" expanded="true" />
+                <element signature="e#5819#5820#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/IEmployee.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="13" column="40" lean-forward="true" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/stream/Stream.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="298">
+              <caret line="183" column="30" selection-start-line="183" selection-start-column="22" selection-end-line="183" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/function/Function.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/EmployeeImplTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -78,59 +185,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Department.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+            <state relative-caret-position="-50">
+              <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/IDepartMent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/JDBCUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="113" column="31" selection-start-line="113" selection-start-column="31" selection-end-line="113" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="80" column="33" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/JdbcUtilTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9" column="35" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="9" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/DepartmentImplTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/JDBCUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+            <state relative-caret-position="495">
+              <caret line="239" column="13" lean-forward="true" selection-start-line="239" selection-start-column="13" selection-end-line="239" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ResultSetConsumer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -143,9 +223,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Class" />
         <option value="JUnit4 Test Class" />
         <option value="Interface" />
-        <option value="Class" />
       </list>
     </option>
   </component>
@@ -161,16 +241,21 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/Department.java" />
-        <option value="$PROJECT_DIR$/src/main/java/IDepartMent.java" />
         <option value="$PROJECT_DIR$/src/test/java/IDepartmentImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
         <option value="$PROJECT_DIR$/src/main/java/IDepartmentImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ResultSetHandler.java" />
-        <option value="$PROJECT_DIR$/src/test/java/JdbcUtilTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/DepartmentImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/JDBCUtil.java" />
         <option value="$PROJECT_DIR$/src/test/java/DepartmentImplTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/IDepartMent.java" />
+        <option value="$PROJECT_DIR$/src/test/java/JdbcUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DepartmentImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Employee.java" />
+        <option value="$PROJECT_DIR$/src/main/java/IEmployee.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ResultSetConsumer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/JDBCUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/EmployeeImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/EmployeeImplTest.java" />
       </list>
     </option>
   </component>
@@ -382,7 +467,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.DepartmentImplTest.queryAll1">
+  <component name="RunManager" selected="JUnit.EmployeeImplTest.queryByCondition">
     <configuration name="DepartmentImplTest.queryAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jdbc02" />
       <option name="PACKAGE_NAME" value="" />
@@ -403,21 +488,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DepartmentImplTest.remove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmployeeImplTest.queryAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jdbc02" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DepartmentImplTest" />
-      <option name="METHOD_NAME" value="remove" />
+      <option name="MAIN_CLASS_NAME" value="EmployeeImplTest" />
+      <option name="METHOD_NAME" value="queryAll" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DepartmentImplTest.update" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmployeeImplTest.queryByCondition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jdbc02" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DepartmentImplTest" />
-      <option name="METHOD_NAME" value="update" />
+      <option name="MAIN_CLASS_NAME" value="EmployeeImplTest" />
+      <option name="METHOD_NAME" value="queryByCondition" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -434,19 +519,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.DepartmentImplTest.update" />
-      <item itemvalue="JUnit.DepartmentImplTest.remove" />
       <item itemvalue="JUnit.DepartmentImplTest.queryAll" />
       <item itemvalue="JUnit.JdbcUtilTest.test1" />
       <item itemvalue="JUnit.DepartmentImplTest.queryAll1" />
+      <item itemvalue="JUnit.EmployeeImplTest.queryAll" />
+      <item itemvalue="JUnit.EmployeeImplTest.queryByCondition" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EmployeeImplTest.queryByCondition" />
+        <item itemvalue="JUnit.EmployeeImplTest.queryAll" />
         <item itemvalue="JUnit.DepartmentImplTest.queryAll1" />
         <item itemvalue="JUnit.JdbcUtilTest.test1" />
         <item itemvalue="JUnit.DepartmentImplTest.queryAll" />
-        <item itemvalue="JUnit.DepartmentImplTest.remove" />
-        <item itemvalue="JUnit.DepartmentImplTest.update" />
       </list>
     </recent_temporary>
   </component>
@@ -460,7 +545,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564363355168</updated>
-      <workItem from="1564363358572" duration="12174000" />
+      <workItem from="1564363358572" duration="17728000" />
     </task>
     <task id="LOCAL-00001" summary="JDBC提取工具类">
       <created>1564369484804</created>
@@ -469,43 +554,50 @@
       <option name="project" value="LOCAL" />
       <updated>1564369484804</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="查询单表的，通用的查询">
+      <created>1564383065259</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1564383065259</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="IDepartmentImplTest_queryAll - 2019.07.29 at 10h 32m 10s.xml">
-      <configuration name="IDepartmentImplTest.queryAll" configurationId="JUnit" />
+    <history-entry file="EmployeeImplTest_queryAll - 2019.07.29 at 16h 02m 23s.xml">
+      <configuration name="EmployeeImplTest.queryAll" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="IDepartmentImplTest_queryAll - 2019.07.29 at 10h 32m 39s.xml">
-      <configuration name="IDepartmentImplTest.queryAll" configurationId="JUnit" />
+    <history-entry file="EmployeeImplTest_queryAll - 2019.07.29 at 16h 03m 21s.xml">
+      <configuration name="EmployeeImplTest.queryAll" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="IDepartmentImplTest_queryAll - 2019.07.29 at 10h 33m 07s.xml">
-      <configuration name="IDepartmentImplTest.queryAll" configurationId="JUnit" />
+    <history-entry file="EmployeeImplTest_queryAll - 2019.07.29 at 16h 04m 13s.xml">
+      <configuration name="EmployeeImplTest.queryAll" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DepartmentImplTest_save - 2019.07.29 at 10h 58m 12s.xml">
-      <configuration name="DepartmentImplTest.save" configurationId="JUnit" />
+    <history-entry file="EmployeeImplTest_queryAll - 2019.07.29 at 16h 06m 26s.xml">
+      <configuration name="EmployeeImplTest.queryAll" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DepartmentImplTest_save - 2019.07.29 at 10h 58m 56s.xml">
-      <configuration name="DepartmentImplTest.save" configurationId="JUnit" />
+    <history-entry file="EmployeeImplTest_queryAll - 2019.07.29 at 16h 06m 53s.xml">
+      <configuration name="EmployeeImplTest.queryAll" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DepartmentImplTest_update - 2019.07.29 at 11h 02m 11s.xml">
-      <configuration name="DepartmentImplTest.update" configurationId="JUnit" />
+    <history-entry file="EmployeeImplTest_queryAll - 2019.07.29 at 16h 16m 21s.xml">
+      <configuration name="EmployeeImplTest.queryAll" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DepartmentImplTest_remove - 2019.07.29 at 11h 02m 52s.xml">
-      <configuration name="DepartmentImplTest.remove" configurationId="JUnit" />
+    <history-entry file="EmployeeImplTest_queryByCondition - 2019.07.29 at 16h 35m 45s.xml">
+      <configuration name="EmployeeImplTest.queryByCondition" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DepartmentImplTest_queryAll - 2019.07.29 at 11h 24m 42s.xml">
-      <configuration name="DepartmentImplTest.queryAll" configurationId="JUnit" />
+    <history-entry file="EmployeeImplTest_queryByCondition - 2019.07.29 at 16h 37m 22s.xml">
+      <configuration name="EmployeeImplTest.queryByCondition" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JdbcUtilTest_test1 - 2019.07.29 at 14h 34m 10s.xml">
-      <configuration name="JdbcUtilTest.test1" configurationId="JUnit" />
+    <history-entry file="EmployeeImplTest_queryByCondition - 2019.07.29 at 16h 38m 44s.xml">
+      <configuration name="EmployeeImplTest.queryByCondition" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JdbcUtilTest_test1 - 2019.07.29 at 14h 38m 41s.xml">
-      <configuration name="JdbcUtilTest.test1" configurationId="JUnit" />
+    <history-entry file="EmployeeImplTest_queryByCondition - 2019.07.29 at 16h 39m 06s.xml">
+      <configuration name="EmployeeImplTest.queryByCondition" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12174000" />
+    <option name="totallyTimeSpent" value="17728000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -517,13 +609,13 @@
       <window_info id="Structure" order="1" sideWeight="0.50180507" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Code Review" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Messages" weight="0.32936078" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.62080175" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.51895994" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -538,18 +630,18 @@
     <layout-to-restore>
       <window_info id="Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.49819493" visible="true" weight="0.25" />
-      <window_info id="Structure" order="3" sideWeight="0.50180507" side_tool="true" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.49819493" visible="true" weight="0.25" />
+      <window_info id="Structure" order="3" sideWeight="0.50180507" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Code Review" order="0" />
       <window_info anchor="bottom" id="Terminal" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="5" />
+      <window_info anchor="bottom" id="Messages" order="5" weight="0.32936078" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" />
-      <window_info anchor="bottom" id="Run" order="8" weight="0.62080175" />
-      <window_info active="true" anchor="bottom" id="Debug" order="9" visible="true" weight="0.3997833" />
+      <window_info anchor="bottom" id="Run" order="8" weight="0.6868906" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" />
@@ -569,7 +661,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="JDBC提取工具类" />
-    <option name="LAST_COMMIT_MESSAGE" value="JDBC提取工具类" />
+    <MESSAGE value="查询单表的，通用的查询" />
+    <option name="LAST_COMMIT_MESSAGE" value="查询单表的，通用的查询" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/resources/log4j2.xml">
@@ -798,13 +891,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/IDepartMent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/sql/ResultSetMetaData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -819,33 +905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/JdbcUtilTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="35" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="9" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/JDBCUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="113" column="31" selection-start-line="113" selection-start-column="31" selection-end-line="113" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Department.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/IDepartmentImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -856,20 +915,161 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DepartmentImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/DepartmentImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="745">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="670">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/DepartmentImplTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/JdbcUtilTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        <state relative-caret-position="250">
+          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/IDepartMent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Department.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-50">
+          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/sql/Timestamp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="144" column="23" selection-start-line="144" selection-start-column="16" selection-end-line="144" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1187#1188#0" expanded="true" />
+            <element signature="e#1229#1230#0" expanded="true" />
+            <element signature="e#1258#1259#0" expanded="true" />
+            <element signature="e#1286#1287#0" expanded="true" />
+            <element signature="e#1325#1326#0" expanded="true" />
+            <element signature="e#1359#1360#0" expanded="true" />
+            <element signature="e#1393#1394#0" expanded="true" />
+            <element signature="e#1423#1424#0" expanded="true" />
+            <element signature="e#1469#1470#0" expanded="true" />
+            <element signature="e#1507#1508#0" expanded="true" />
+            <element signature="e#1545#1546#0" expanded="true" />
+            <element signature="e#1579#1580#0" expanded="true" />
+            <element signature="e#1633#1634#0" expanded="true" />
+            <element signature="e#1679#1680#0" expanded="true" />
+            <element signature="e#1710#1711#0" expanded="true" />
+            <element signature="e#1735#1736#0" expanded="true" />
+            <element signature="e#1773#1774#0" expanded="true" />
+            <element signature="e#1801#1802#0" expanded="true" />
+            <element signature="e#1835#1836#0" expanded="true" />
+            <element signature="e#1867#1868#0" expanded="true" />
+            <element signature="e#1915#1916#0" expanded="true" />
+            <element signature="e#1957#1958#0" expanded="true" />
+            <element signature="e#1993#1994#0" expanded="true" />
+            <element signature="e#2025#2026#0" expanded="true" />
+            <element signature="e#2075#2076#0" expanded="true" />
+            <element signature="e#2117#2118#0" expanded="true" />
+            <element signature="e#2149#2150#0" expanded="true" />
+            <element signature="e#2177#2178#0" expanded="true" />
+            <element signature="e#2219#2220#0" expanded="true" />
+            <element signature="e#2248#2249#0" expanded="true" />
+            <element signature="e#2289#2290#0" expanded="true" />
+            <element signature="e#2322#2323#0" expanded="true" />
+            <element signature="e#2378#2379#0" expanded="true" />
+            <element signature="e#2422#2423#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/stream/Stream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="183" column="30" selection-start-line="183" selection-start-column="22" selection-end-line="183" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/function/Function.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DepartmentImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="25" column="30" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ResultSetConsumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/IEmployee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="40" lean-forward="true" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/EmployeeImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EmployeeImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="124" lean-forward="true" selection-start-line="124" selection-end-line="124" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#126#127#0" expanded="true" />
+            <element signature="e#150#151#0" expanded="true" />
+            <element signature="e#208#209#0" expanded="true" />
+            <element signature="e#232#233#0" expanded="true" />
+            <element signature="e#282#283#0" expanded="true" />
+            <element signature="e#306#307#0" expanded="true" />
+            <element signature="e#5778#5779#0" expanded="true" />
+            <element signature="e#5819#5820#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/JDBCUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="239" column="13" lean-forward="true" selection-start-line="239" selection-start-column="13" selection-end-line="239" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
