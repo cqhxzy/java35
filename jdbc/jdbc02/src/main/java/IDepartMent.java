@@ -34,4 +34,5 @@ public interface IDepartMent {
      * @return
      */
     List<Department> queryAll(int pageIndex,int pageSize);
+
 }
