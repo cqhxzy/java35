@@ -6,9 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 public class JDBCUtil{
     private static String DRIVER;
@@ -170,6 +168,82 @@ public class JDBCUtil{
             this.closeAll(connection,preparedStatement,rs);
         }
         return list;
+    }
+
+    public List<Map<String,Object>> queryAll(String sql,Object...params){
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet rs = null;
+        List<Map<String, Object>> list = new ArrayList<>();
+
+        try {
+            connection = this.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            if (params != null) {
+                for (int i = 0; i < params.length; i++) {
+                    //为SQL语句中的参数赋值
+                    preparedStatement.setObject(i + 1,params[i]);
+                }
+            }
+
+            //执行sql语句
+            rs = preparedStatement.executeQuery();
+
+            //通过ResultSet对象，获取查询的SQL语句的元数据，元数据中包括了查询的SQL语句的列的个数，以及列名
+            ResultSetMetaData metaData = rs.getMetaData();
+
+            while (rs.next()){
+                int columnCount = metaData.getColumnCount();//返回查询语句中，查询的列的个数
+
+                Map<String,Object> map = new HashMap<>(); //一个map的对象，代表一行数据
+
+                //通过循环为obj中的属性赋值
+                for (int i = 1; i <= columnCount ; i++) {
+                    String columnLabel = metaData.getColumnLabel(i);//获取查询的SQL语句的列名
+                    Object value = rs.getObject(i);
+                    map.put(columnLabel,value);
+
+                }
+                list.add(map);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            this.closeAll(connection,preparedStatement,rs);
+        }
+        return list;
+    }
+
+    public void queryAll(String sql,ResultSetConsumer consumer,Object...params){
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet rs = null;
+        logger.debug(sql);
+        try {
+            connection = this.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            if (params != null) {
+                for (int i = 0; i < params.length; i++) {
+                    //为SQL语句中的参数赋值
+                    preparedStatement.setObject(i + 1,params[i]);
+                }
+            }
+
+            //执行sql语句
+            rs = preparedStatement.executeQuery();
+
+            while (rs.next()){
+                Object apply = consumer.apply(rs);
+                logger.debug("builder obj:" + apply);
+                consumer.accept(apply); //关键方法
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            this.closeAll(connection,preparedStatement,rs);
+        }
     }
 
 }

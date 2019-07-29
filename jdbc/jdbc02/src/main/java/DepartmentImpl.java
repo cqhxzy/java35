@@ -24,7 +24,10 @@ public class DepartmentImpl extends JDBCUtil implements IDepartMent{
 
     @Override
     public Department findById(int deptId) {
-        return null;
+        String sql = "select deptId,deptName,deptAddress from department where deptId=?";
+
+        List<Department> departments = super.queryAll(Department.class, sql, deptId);
+        return departments.size() > 0 ? departments.get(0) : null;
     }
 
     @Override
@@ -35,6 +38,8 @@ public class DepartmentImpl extends JDBCUtil implements IDepartMent{
 
         return super.queryAll(Department.class,sql,begin,end);
     }
+
+
 
 
 }

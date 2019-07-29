@@ -37,4 +37,8 @@ public class DepartmentImplTest {
         List<Department> departments = departMent.queryAll(2, 3);
         departments.stream().forEach(System.out::println);
     }
+
+    public void queryAll2(){
+
+    }
 }
