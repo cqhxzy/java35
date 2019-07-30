@@ -22,6 +22,7 @@ public class demo01 {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         dataSource.setConnectionProperties("config.decrypt=true;config.decrypt.key=MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAInW36sLDZWKhh599ijWlQqH3fEaqhLG+VcNWQJikTLK5OLM3TpsB/e3VxdMRJs541IaN+Yb9LTALW8G/ns8qIkCAwEAAQ==");
 
 

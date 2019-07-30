@@ -17,20 +17,18 @@ public class demo02 {
         InputStream resourceAsStream = demo02.class.getResourceAsStream("/jdbc.properties");
         Properties properties = new Properties();
         try {;
+            properties.load(resourceAsStream);
 
             DruidDataSource dataSource = (DruidDataSource) DruidDataSourceFactory.createDataSource(properties);
-            dataSource.setFilters("config,stat");
-            dataSource.setConnectionProperties("config.decrypt=true;config.decrypt.key=MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAInW36sLDZWKhh599ijWlQqH3fEaqhLG+VcNWQJikTLK5OLM3TpsB/e3VxdMRJs541IaN+Yb9LTALW8G/ns8qIkCAwEAAQ==");
             System.out.println(dataSource.getPassword());
-            System.out.println(dataSource.getUsername());
 
-            //Connection connection = dataSource.getConnection();
+            Connection connection = dataSource.getConnection();
 
             logger.debug("getConnectCount:" + String.valueOf(dataSource.getConnectCount()));
             logger.debug("getPoolingCount:" + String.valueOf(dataSource.getPoolingCount()));
             logger.debug("getActiveCount:" + String.valueOf(dataSource.getActiveCount()));
 
-            //System.out.println( connection != null);
+            System.out.println( connection != null);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
