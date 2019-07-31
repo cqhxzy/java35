@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jsp01:Web">
+    <output-path>$PROJECT_DIR$/out/artifacts/jsp01_Web</output-path>
+    <root id="archive" name="jsp01_Web.war">
+      <element id="artifact" artifact-name="jsp01:Web exploded" />
+    </root>
+  </artifact>
+</component>

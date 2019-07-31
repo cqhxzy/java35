@@ -12,6 +12,6 @@ public class IndexServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        System.out.println("IndexServlet.-----------------------------------------.");
+        System.out.println("IndexServlet123123123");
     }
 }
