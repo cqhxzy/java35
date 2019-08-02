@@ -1,5 +1,9 @@
+<%@page contentType="text/html; charset=utf-8" %>
 <html>
 <body>
-<h2>Hello World!</h2>
+<%
+    String user = (String) session.getAttribute("user");
+%>
+<h2>欢迎您：<%=user%></h2>
 </body>
 </html>

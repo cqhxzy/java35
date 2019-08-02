@@ -1,3 +1,4 @@
+<%@ page import="java.util.Arrays" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     /*
@@ -21,9 +22,33 @@
     * */
     String userName = request.getParameter("userName");
     String loginPwd = request.getParameter("loginPwd");
+    String[] savePwds = request.getParameterValues("savePwd"); //页面中，表单元素为checkbox或者radio时，必须通过getParameterValues来访问其值
+    System.out.println(Arrays.toString(savePwds));
 
     System.out.println("用户名：" + userName + ",登录密码：" + loginPwd);
     if(userName.equals("admin") && loginPwd.equals("123456")){ //登录成功。
+
+        session.setAttribute("user","admin");//登录成功后，将用户名保存到session作用域中
+        session.setMaxInactiveInterval(20); //设置session有效时间
+        String sessionId = session.getId();//获取sessionId
+        System.out.println("sessionId:" + sessionId);
+
+        /*
+        * 本页面提供了缓存用户名和密码的功能，通过勾选复选框实现逻辑
+        * */
+        if (savePwds != null){ //说明勾选了保存密码
+            Cookie userNameCookie = new Cookie("userName","admin"); //将用户名添加到缓存
+            Cookie loginPwdCookie = new Cookie("loginPwd","123456");
+
+            //设置有效时间
+            userNameCookie.setMaxAge(7*3600*24);  //cookie有效时间为7天
+            loginPwdCookie.setMaxAge(7*3600*24);
+
+            //将cookie添加到响应头中
+            response.addCookie(userNameCookie);
+            response.addCookie(loginPwdCookie);
+        }
+
         //跳转到查询所有信息的页面
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("doQuery.jsp"); //获取页面转发的对象
         requestDispatcher.forward(request,response);
