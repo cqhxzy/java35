@@ -22,6 +22,10 @@
     </style>
 </head>
 <body>
+    <%
+        String user = (String) session.getAttribute("user");
+    %>
+    <h2>欢迎您：<%=user%></h2>
     <table>
         <thead>
             <tr>
@@ -38,6 +42,12 @@
                 if (users != null && users.size() > 0){
                     for (int i = 0; i < users.size(); i++) {
                         Map<String, String> map = users.get(i); //获取每条数据
+
+                        /*
+                        * 这是一个典型的Java代码负责业务逻辑及数据，由HTML标签显示数据
+                        * 下面代码的原理：每次循环，在循环体中遍历产生tr标签，及设置标签的文本。
+                        * 相当于通过循环，不断的往table标签中追加tr标签。
+                        * */
             %>
                         <tr>
                             <td><%=map.get("userName")%></td>
