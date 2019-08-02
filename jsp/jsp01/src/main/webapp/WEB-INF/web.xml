@@ -3,8 +3,10 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
+  <display-name>jsp01</display-name>
+    <!--配置jsp01项目默认的起始页-->
+    <welcome-file-list>
+        <!--在浏览器中输入url时，如果没有具体指向某个页面，则默认进入项目的起始页-->
+        <welcome-file>/pages/demo1.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>
