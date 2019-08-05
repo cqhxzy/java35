@@ -25,6 +25,9 @@
                 <input type="password" name="loginPwd" placeholder="请输入密码" id="loginPwd" />
             </div>
             <div>
+                <label>保存密码:<input type="checkbox" name="savePwd"/></label>
+            </div>
+            <div>
                 <button>登录</button>
             </div>
 
