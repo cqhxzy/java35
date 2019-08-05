@@ -1,11 +1,14 @@
-package com.hxyz.web;
+package com.hxzy.web;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 
 /**
  * 自定义的servlet
@@ -58,9 +61,29 @@ public class MyFirstServlet extends HttpServlet {
         System.out.println("servlet执行destroy销毁的方法");
     }
 
-    @Override
+    /*@Override
     public void init() throws ServletException {
         super.init();
         System.out.println("servlet执行init初始化方法");
+    }*/
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        System.out.println("执行servlet初始化init方法");
+        String servletName = config.getServletName();
+        System.out.println("servletName:" + servletName);
+
+        ServletContext application = config.getServletContext();//获取servlet上下文环境，它就是jsp内置对象中的application
+
+        System.out.println("--------------------根据init-param参数中的name获取其值-----------------------------");
+        String encoding = config.getInitParameter("encoding");//根据键获取servlet初始化参数
+        System.out.println("初始化参数encoding：" + encoding);
+
+        System.out.println("-----------------获取所有的初始化参数名---------------------");
+        Enumeration<String> initParameterNames = config.getInitParameterNames();//获取所有的初始化参数的名称
+        while (initParameterNames.hasMoreElements()) {
+            String key = initParameterNames.nextElement();
+            System.out.println("key：" + key);
+        }
     }
 }
