@@ -1,0 +1,29 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+
+  <servlet>
+    <!--自定义的servlet的名字-->
+    <servlet-name>myFirstServlet</servlet-name>
+
+    <!--自定义servlet的完整类路径-->
+    <servlet-class>com.hxyz.web.MyFirstServlet</servlet-class>
+  </servlet>
+
+  <!--
+    servlet映射，当客户端输入流url-pattern的地址后，就访问servlet-name对应的servlet中的
+    servlet-class,换而言之，当客户端在发起请求时，根据url，tomcat服务器就能够根据
+    servlet的类的完整路径实例化servlet的对象。
+  -->
+  <servlet-mapping>
+    <!--对应servlet节点中的servlet-name-->
+    <servlet-name>myFirstServlet</servlet-name>
+
+    <!--浏览器中输入的url地址-->
+    <url-pattern>/myFirstServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
