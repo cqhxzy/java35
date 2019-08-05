@@ -1,8 +1,13 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
-<web-app>
+<!--
+  maven构建的javaEE项目，默认的web.xml的版本比较低，因此有些功能默认是被关闭掉的
+  通过更换web.xml的命名空间实现更换版本
+-->
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
   <display-name>Archetype Created Web Application</display-name>
 
 
@@ -11,7 +16,24 @@
     <servlet-name>myFirstServlet</servlet-name>
 
     <!--自定义servlet的完整类路径-->
-    <servlet-class>com.hxyz.web.MyFirstServlet</servlet-class>
+    <servlet-class>com.hxzy.web.MyFirstServlet</servlet-class>
+
+    <!--
+      当前这个servlet对应的初始化参数，在init方法中可以得到servletConfig的对象
+    -->
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+    <init-param>
+      <param-name>name</param-name>
+      <param-value>nick</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet>
+    <servlet-name>queryAllDepartments</servlet-name>
+    <servlet-class>com.hxzy.web.QueryDepartmentServlet</servlet-class>
   </servlet>
 
   <!--
@@ -25,5 +47,9 @@
 
     <!--浏览器中输入的url地址-->
     <url-pattern>/myFirstServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>queryAllDepartments</servlet-name>
+    <url-pattern>/allDepartments</url-pattern>
   </servlet-mapping>
 </web-app>
