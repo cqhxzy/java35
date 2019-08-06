@@ -41,4 +41,11 @@ public interface DepartmentDao {
      * @return
      */
     List<Department> queryAll();
+
+    /**
+     * 批量删除部门
+     * @param deptIds
+     * @return
+     */
+    int batchRemoveDept(Integer[] deptIds);
 }

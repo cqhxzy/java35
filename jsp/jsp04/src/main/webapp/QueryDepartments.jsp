@@ -88,13 +88,13 @@
                 <h2>部门信息表</h2>
                 <div class="operate">
                     <a href="#" id="add">新增</a>
-                    <a href="#">删除</a>
+                    <a href="#" id="remove_batch">删除</a>
                 </div>
             </nav>
         </caption>
         <thead>
             <tr>
-                <th><input type="checkbox" id="all" />全选</th>
+                <th><label><input type="checkbox" id="all" />全选</label></th>
                 <th>部门名称</th>
                 <th>部门地址</th>
                 <th>操作</th>
@@ -118,7 +118,7 @@
                     <td>${department.deptAddress}</td>
                     <td>
                         <a href="#">修改</a>
-                        <a href="#">删除</a>
+                        <a href="#" class="btn_remove">删除</a>
                     </td>
                 </tr>
             </c:forEach>
@@ -127,7 +127,89 @@
     </table>
 <script>
     $(function(){
+        $("#all").change(function(){
+            //layer.msg($(this).prop("checked"));
+            var isChecked = $(this).prop("checked"); //获取全选的选中状态
+            if(isChecked){ //选中
+                //layer.msg($("input[name='deptId']").length);
+                $("input[name='deptId']").prop("checked",true);
+            } else {
+                $("input[name='deptId']").prop("checked",false);
+            }
+        });
 
+        $("#remove_batch").click(function (e) {
+            e.preventDefault();
+            var deptIds = $("input[name='deptId']:checked");
+            if (deptIds.length > 0){
+                layer.confirm('确认删除吗？', {icon: 3, title:'提示'}, function(index){
+                    var strs = "";
+                    deptIds.each(function(index,ele){
+                        strs += $(this).val() + "|";
+                    })
+
+                    //layer.msg("要批量删除的编号为：" + strs);
+                    $.ajax({
+                        url:'/jsp04/batchRemoveDept',
+                        type:'post',
+                        data:'deptIds=' + strs,
+                        beforeSend:function () {
+                            layerIndex = layer.load(1, {
+                                shade: [0.1,'#fff'], //0.1透明度的白色背景
+                                time:0
+                            })
+                        },
+                        success:function (data) {
+                            layer.close(layerIndex);
+                            //将字符串d转换boolean类型，因为d现在为string
+                            if (eval(data)){
+                                layer.msg('删除成功');
+                                //window.location.reload(true); //通过js强制刷新页面
+                            } else {
+                                layer.msg('删除失败');
+                            }
+                        }
+                    })
+
+                    layer.close(index);
+                });
+            }
+        });
+
+        $("table").on("click",".btn_remove",function (e) {
+            e.preventDefault();
+            var tag_a = this;
+            layer.confirm('确认删除吗？', {icon: 3, title:'提示'}, function(index){
+                //do something
+                var deptId = $(tag_a).parents("tr").find("[name='deptId']").val();
+                //alert("要删除的部门编号为：" + deptId);
+
+                $.ajax({
+                    url:'/jsp04/removeDept',
+                    type:'post',
+                    data:'deptId=' + deptId,
+                    beforeSend:function () {
+                        layerIndex = layer.load(1, {
+                            shade: [0.1,'#fff'], //0.1透明度的白色背景
+                            time:0
+                        })
+                    },
+                    success:function (data) {
+                        layer.close(layerIndex);
+                        //将字符串d转换boolean类型，因为d现在为string
+                        if (eval(data)){
+                            layer.msg('删除成功');
+                            $(tag_a).parents("tr").remove();
+                            //window.location.reload(true); //通过js强制刷新页面
+                        } else {
+                            layer.msg('删除失败');
+                        }
+                    }
+                })
+
+                layer.close(index);
+            });
+        })
     });
     var layerIndex;
     layui.use(['form'], function(){
@@ -171,7 +253,7 @@
                     //将字符串d转换boolean类型，因为d现在为string
                     if (eval(d)){
                         layer.msg('新增成功');
-                        window.location.reload(true); //通过js强制刷新页面
+                        //window.location.reload(true); //通过js强制刷新页面
                     } else {
                         layer.msg('新增失败');
                     }

@@ -20,7 +20,7 @@ public interface DepartmentBiz {
      * @param deptId
      * @return
      */
-    int deleteById(int deptId);
+    boolean deleteById(int deptId);
 
     /**
      * 根据部门编号修改部门信息
@@ -41,4 +41,11 @@ public interface DepartmentBiz {
      * @return
      */
     List<Department> queryAll();
+
+    /**
+     * 批量删除部门信息
+     * @param deptIds
+     * @return
+     */
+    boolean batchRemoveDept(String[] deptIds);
 }
