@@ -13,7 +13,7 @@ public interface DepartmentBiz {
      * @param department
      * @return
      */
-    int save(Department department);
+    boolean save(Department department);
 
     /**
      * 根据编号删除部门

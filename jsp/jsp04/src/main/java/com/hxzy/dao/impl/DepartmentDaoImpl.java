@@ -9,8 +9,8 @@ import java.util.List;
 public class DepartmentDaoImpl extends JDBCUtil implements DepartmentDao {
     @Override
     public int save(Department department) {
-        String sql = "insert into department (deptId,deptName,deptAddress) values(?,?,?)";
-        return super.executeUpdate(sql,new Object[]{department.getDeptId(),department.getDeptName(),department.getDeptAddress()});
+        String sql = "insert into department (deptName,deptAddress) values(?,?)";
+        return super.executeUpdate(sql,new Object[]{department.getDeptName(),department.getDeptAddress()});
     }
 
     @Override

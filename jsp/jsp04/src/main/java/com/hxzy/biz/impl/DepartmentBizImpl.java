@@ -13,8 +13,8 @@ public class DepartmentBizImpl implements DepartmentBiz {
     private DepartmentDao departmentDao = new DepartmentDaoImpl();
 
     @Override
-    public int save(Department department) {
-        return departmentDao.save(department);
+    public boolean save(Department department) {
+        return departmentDao.save(department) > 0;
     }
 
     @Override
