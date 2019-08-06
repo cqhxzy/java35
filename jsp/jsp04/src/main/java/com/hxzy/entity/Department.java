@@ -16,6 +16,11 @@ public class Department implements Serializable {
     /*部门地址*/
     private String deptAddress;
 
+    public Department(String deptName, String deptAddress) {
+        this.deptName = deptName;
+        this.deptAddress = deptAddress;
+    }
+
     @Override
     public String toString() {
         return "Department{" +
