@@ -24,6 +24,9 @@ public class MyFirstServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = Thread.currentThread().getName();
+        String remoteAddr = request.getRemoteAddr();
+        System.out.println(name + "/t" + remoteAddr);
         response.setContentType("text/html; charset=utf-8");//设置响应的MIME类型，给浏览器用的
         response.setCharacterEncoding("utf-8"); //设置响应的编码方式为utf-8
 

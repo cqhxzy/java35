@@ -16,6 +16,8 @@ import java.util.*;
 public class JDBCUtil {
     private static Logger logger = LoggerFactory.getLogger(JDBCUtil.class);
     private static DruidDataSource dataSource = null;
+    private ThreadLocal<Connection> local = new ThreadLocal<>(); //
+    private boolean isStartTransaction = false;//是否开启事务
     static{
         //读取配置文件，得到连接字符串
         InputStream resourceAsStream = JDBCUtil.class.getResourceAsStream("/jdbc.properties");
@@ -36,17 +38,77 @@ public class JDBCUtil {
      * @return
      */
     public Connection getConnection(){
+        Connection connection1 = local.get();
+        if (connection1 == null) {//如果threadlocal中已经保存了connection则只会获取，不用从连接池中再次获取
+            try {
+                Connection connection = dataSource.getConnection(); //从连接池中获取连接
+
+                logger.debug("activeCount:" + dataSource.getActiveCount());
+                logger.debug("PoolingCount:" + dataSource.getPoolingCount());
+
+                local.set(connection); //将connection添加到threadlocal
+                return  connection;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return connection1;
+    }
+
+    /**
+     * 提交事务
+     */
+    public void commit(){
+        Connection connection = getConnection();
         try {
-            Connection connection = dataSource.getConnection(); //从连接池中获取连接
+            connection.commit(); //提交事务
+            logger.debug("提交事务");
+        } catch (SQLException e) {
+            logger.error("提交事务异常：" + e.getMessage());
+            try {
+                connection.rollback(); //回滚事务
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+            e.printStackTrace();
+        }
+    }
 
-            logger.debug("activeCount:" + dataSource.getActiveCount());
-            logger.debug("PoolingCount:" + dataSource.getPoolingCount());
-
-            return  connection;
+    public void rollback(){
+        Connection connection = getConnection();
+        try {
+            connection.rollback();
+            logger.debug("回滚事务：" + connection);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+    }
+
+    /**
+     * 关闭数据库的自动提交，实现事务操作
+     */
+    public void startTransaction(){
+        Connection connection = getConnection(); //从连接池中获取一个连接
+        try {
+            connection.setAutoCommit(false);
+            isStartTransaction = true; //开启事务
+            logger.debug("开启事务，从连接池中获取一个connection：" + connection);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void endTransaction(){
+        Connection connection = local.get();
+        try {
+            isStartTransaction = false; //关闭事务
+            connection.setAutoCommit(true);  //还原，允许jdbc自动提交事务
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeAll(connection,null,null);
+        }
+        local.remove(); //将当前threadlocal中的connection移除掉
     }
 
     /**
@@ -102,7 +164,11 @@ public class JDBCUtil {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            this.closeAll(connection,preparedStatement,null);
+            if (isStartTransaction){
+                this.closeAll(null,preparedStatement,null);
+            } else {
+                this.closeAll(connection,preparedStatement,null);
+            }
         }
         return 0; //return 0 说明数据库操作失败
     }
