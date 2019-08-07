@@ -1,0 +1,90 @@
+
+<!--
+  maven构建的javaEE项目，默认的web.xml的版本比较低，因此有些功能默认是被关闭掉的
+  通过更换web.xml的命名空间实现更换版本
+-->
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+  <display-name>Archetype Created Web Application</display-name>
+
+  <!--多个过滤器的执行顺序与定义的filtermapping的顺序相关-->
+
+  <filter>
+    <filter-name>myFilter</filter-name>
+    <filter-class>com.hxzy.web.filter.MyFilter</filter-class>
+    <init-param>
+      <param-name>name</param-name>
+      <param-value>hello</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>myFilter</filter-name>
+    <!--拦截所有的请求-->
+    <url-pattern>/admin/*</url-pattern>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>firstFilter</filter-name>
+    <filter-class>com.hxzy.web.filter.FirstFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>firstFilter</filter-name>
+    <!--拦截所有的请求-->
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>secondFilter</filter-name>
+    <filter-class>com.hxzy.web.filter.SecondFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>secondFilter</filter-name>
+    <!--拦截所有的请求-->
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <servlet>
+    <!--自定义的servlet的名字-->
+    <servlet-name>myFirstServlet</servlet-name>
+
+    <!--自定义servlet的完整类路径-->
+    <servlet-class>com.hxzy.web.MyFirstServlet</servlet-class>
+
+    <!--
+      当前这个servlet对应的初始化参数，在init方法中可以得到servletConfig的对象
+    -->
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+    <init-param>
+      <param-name>name</param-name>
+      <param-value>nick</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet>
+    <servlet-name>queryAllDepartments</servlet-name>
+    <servlet-class>com.hxzy.web.QueryDepartmentServlet</servlet-class>
+  </servlet>
+
+  <!--
+    servlet映射，当客户端输入流url-pattern的地址后，就访问servlet-name对应的servlet中的
+    servlet-class,换而言之，当客户端在发起请求时，根据url，tomcat服务器就能够根据
+    servlet的类的完整路径实例化servlet的对象。
+  -->
+  <servlet-mapping>
+    <!--对应servlet节点中的servlet-name-->
+    <servlet-name>myFirstServlet</servlet-name>
+
+    <!--浏览器中输入的url地址-->
+    <url-pattern>/myFirstServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>queryAllDepartments</servlet-name>
+    <url-pattern>/admin/allDepartments</url-pattern>
+  </servlet-mapping>
+</web-app>
