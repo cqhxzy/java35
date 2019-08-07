@@ -38,11 +38,11 @@
             right: 0;
         }
     </style>
-    <link rel="stylesheet" href="asset/layer/theme/default/layer.css"  media="all">
-    <link rel="stylesheet" href="asset/layui/css/layui.css" />
-    <script src="asset/jquery-1.11.3.min.js"></script>
-    <script src="asset/layer/layer.js"></script>
-    <script src="asset/layui/layui.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="${APP_PATH}/asset/layer/theme/default/layer.css"  media="all">
+    <link rel="stylesheet" href="${APP_PATH}/asset/layui/css/layui.css" />
+    <script src="${APP_PATH}/asset/jquery-1.11.3.min.js"></script>
+    <script src="${APP_PATH}/asset/layer/layer.js"></script>
+    <script src="${APP_PATH}/asset/layui/layui.js" charset="utf-8"></script>
     <script>
         $(function(){
 
