@@ -4,6 +4,7 @@ import com.hxzy.biz.UsersBiz;
 import com.hxzy.entity.Users;
 import org.junit.Test;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static org.junit.Assert.*;
@@ -16,9 +17,9 @@ public class UsersBizImplTest {
         UsersBiz usersBiz = new UsersBizImpl();
 
         Users users = new Users();
-        users.setLoginName("zhangsan");
+        users.setLoginName("lisi");
         users.setLoginPwd("123456");
-        users.setUserName("张三");
+        users.setUserName("李四");
         users.setEmail("12346@qq.com");
         users.setCreateTime(new Date());
 
@@ -30,8 +31,11 @@ public class UsersBizImplTest {
     @Test
     public void login(){
         UsersBiz usersBiz = new UsersBizImpl();
-        Users zhangsan = usersBiz.login("zhangsan", "123456");
+        Users zhangsan = usersBiz.login("lisi", "123456");
         System.out.println(zhangsan);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String format = sdf.format(zhangsan.getCreateTime());
+        System.out.println(format);
         assertThat(zhangsan,notNullValue());
     }
 }
