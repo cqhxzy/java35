@@ -20,7 +20,7 @@ public class UsersBizImplTest {
         users.setLoginPwd("123456");
         users.setUserName("张三");
         users.setEmail("12346@qq.com");
-        //users.setCreateTime(new Date());
+        users.setCreateTime(new Date());
 
 
         boolean save = usersBiz.save(users);

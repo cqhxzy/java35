@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.*;
 
@@ -206,6 +208,17 @@ public class JDBCUtil {
             ResultSetMetaData metaData = rs.getMetaData();
 
 
+            ConvertUtils.register((clazz,v) ->{
+                if (v != null) {
+                    try {
+                        return new SimpleDateFormat("yyyy-MM-dd").parse(v.toString());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }//内部类：value接收data转换成string类型
+                //SimpleDateFormat中的parse方法可以  把String型的字符串转换成特定格式的date类
+                return null;
+            }, Date.class);
 
             while (rs.next()){
                 int columnCount = metaData.getColumnCount();//返回查询语句中，查询的列的个数
@@ -215,11 +228,6 @@ public class JDBCUtil {
                 for (int i = 1; i <= columnCount ; i++) {
                     String columnLabel = metaData.getColumnLabel(i);//获取查询的SQL语句的列名
                     Object value = rs.getObject(i);
-
-                    ConvertUtils.register((clazz,v)->{
-                        System.out.println(clazz.getName() + "---------" + v);
-                        return v;
-                    }, Date.class);
                     //System.out.println("columnLabel:" + columnLabel + ",value:" + value);
                     //columnLabel列名必须和T所对应的类中的属性名一致。
                     BeanUtils.setProperty(obj,columnLabel,value); //为obj这个对象的columnLabel属性赋值为value
