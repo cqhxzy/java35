@@ -11,4 +11,6 @@ public class StringUtilTest {
         String encrypt = StringUtil.encrypt("123456");
         System.out.println(encrypt);
     }
+
+
 }
