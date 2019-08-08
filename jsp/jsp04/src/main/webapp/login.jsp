@@ -22,6 +22,12 @@
             max-width: 500px;
             max-height: 200px;
         }
+        body .layui-layer-tips .layui-layer-content{
+            background-color: #eb7350; /*tips的背景色*/
+        }
+        body .layui-layer-tips i.layui-layer-TipsT{
+            border-right-color: #eb7350; /*tips下面三角符号的边框颜色*/
+        }
     </style>
 
 </head>
@@ -32,13 +38,13 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">用户名</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="loginName" required  lay-verify="required|len" placeholder="请输入用户" autocomplete="off" class="layui-input">
+                        <input type="text" name="loginName" lay-reqText="用户名不能为空" lay-verType="tips" lay-verify="required|len" placeholder="请输入用户" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">密码</label>
                     <div class="layui-input-inline">
-                        <input type="password" name="loginPwd" required lay-verify="required|pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                        <input type="password" name="loginPwd" lay-reqText="密码不能为空" lay-verType="tips" lay-verify="required|pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -52,7 +58,7 @@
 <script>
     //Demo
     layui.use('form', function(){
-        var form = layui.form;
+        let form = layui.form;
 
         form.verify({
             len: function(value){
@@ -69,9 +75,9 @@
         //监听提交
         form.on('submit(formLogin)', function(data){
 
-            var loginName = data.field["loginName"];
-            var loginPwd = data.field["loginPwd"];
-            var layerIndex = 0;
+            let loginName = data.field["loginName"];
+            let loginPwd = data.field["loginPwd"];
+            let layerIndex = 0;
             $.ajax({
                 url:'${APP_PATH}/admin/doLogin',
                 type:'post',
@@ -90,7 +96,7 @@
                     if(jsonString.flag){ //登录成功
                         window.location.href = "${APP_PATH}/admin/allDepartments";
                     } else { //登录失败
-                        layer.msg(jsonString.data, {time:2000, icon:5, shift:6}, function(){});
+                        layer.msg(jsonString.data, {time:2000, icon:5, anim:6}, function(){});
                     }
                 }
             });
