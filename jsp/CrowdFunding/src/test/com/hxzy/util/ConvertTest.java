@@ -1,6 +1,7 @@
 package com.hxzy.util;
 
 import com.hxzy.entity.Users;
+import com.sun.media.sound.SoftTuning;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.ConversionException;
 import org.apache.commons.beanutils.ConvertUtils;
@@ -9,6 +10,7 @@ import org.apache.commons.beanutils.locale.converters.DateLocaleConverter;
 import org.junit.Test;
 
 import java.lang.reflect.InvocationTargetException;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,7 +25,7 @@ public class ConvertTest {
             ConvertUtils.register((clazz,value) ->{
                 if (value != null) {
                     try {
-                        return new SimpleDateFormat("yyyy-MM-dd").parse(value.toString());
+                        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(value.toString());
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
@@ -32,7 +34,8 @@ public class ConvertTest {
                 return null;
             }, Date.class);
 
-            BeanUtils.setProperty(users, "createTime", new java.sql.Date(System.currentTimeMillis()));
+            //BeanUtils.setProperty(users, "uId", 10);
+            BeanUtils.setProperty(users, "createTime", new Timestamp(System.currentTimeMillis()));
 
             System.out.println(users);
         } catch (IllegalAccessException e) {

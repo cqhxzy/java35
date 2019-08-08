@@ -211,7 +211,7 @@ public class JDBCUtil {
             ConvertUtils.register((clazz,v) ->{
                 if (v != null) {
                     try {
-                        return new SimpleDateFormat("yyyy-MM-dd").parse(v.toString());
+                        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(v.toString());
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
