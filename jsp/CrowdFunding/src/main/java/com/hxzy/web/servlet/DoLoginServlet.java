@@ -40,7 +40,7 @@ public class DoLoginServlet extends HttpServlet {
                 Cookie cookie_name = new Cookie("loginName", loginName);
                 cookie_name.setMaxAge(60 * 60 * 24 * 7); //缓存7天
 
-                Cookie cookie_pwd = new Cookie("loginName", loginName);
+                Cookie cookie_pwd = new Cookie("loginPwd", loginPwd);
                 cookie_pwd.setMaxAge(60 * 60 * 24 * 7); //缓存7天
 
                 response.addCookie(cookie_name);
