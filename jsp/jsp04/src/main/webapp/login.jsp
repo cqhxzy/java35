@@ -96,7 +96,7 @@
                     if(jsonString.flag){ //登录成功
                         window.location.href = "${APP_PATH}/admin/allDepartments";
                     } else { //登录失败
-                        layer.msg(jsonString.data, {time:2000, icon:5, shift:6}, function(){});
+                        layer.msg(jsonString.data, {time:2000, icon:5, anim:6}, function(){});
                     }
                 }
             });
