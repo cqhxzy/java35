@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="GB18030">
+<html lang="zh-cn">
 <head>
     <meta charset="GB18030">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,9 +14,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="${APP_PATH}/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${APP_PATH}/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${APP_PATH}/static/css/main.css">
     <style>
         .tree li {
             list-style-type: none;
@@ -360,7 +360,7 @@
                                 <td colspan="6" align="center">
                                     <ul class="pagination">
                                         <li class="disabled"><a href="#">上一页</a></li>
-                                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                                        <li class="active"><a href="#">1</a></li>
                                         <li><a href="#">2</a></li>
                                         <li><a href="#">3</a></li>
                                         <li><a href="#">4</a></li>
@@ -379,9 +379,9 @@
     </div>
 </div>
 
-<script src="jquery/jquery-2.1.1.min.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
-<script src="script/docs.min.js"></script>
+<script src="${APP_PATH}/static/jquery/jquery-2.1.1.min.js"></script>
+<script src="${APP_PATH}/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="${APP_PATH}/static/script/docs.min.js"></script>
 <script type="text/javascript">
     $(function () {
         $(".list-group-item").click(function(){
