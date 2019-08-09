@@ -8,9 +8,11 @@
     <meta name="author" content="">
 
     <link rel="stylesheet" href="${APP_PATH}/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${APP_PATH}/static/bootstrapValidator/css/bootstrapValidator.css">
     <link rel="stylesheet" href="${APP_PATH}/static/css/font-awesome.min.css">
     <link rel="stylesheet" href="${APP_PATH}/static/css/main.css">
     <link rel="stylesheet" href="${APP_PATH}/static/css/doc.min.css">
+    <link rel="stylesheet" href="${APP_PATH}/static/layer/theme/default/layer.css">
     <style>
         .tree li {
             list-style-type: none;
@@ -131,7 +133,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">表单数据<div style="float:right;cursor:pointer;" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-question-sign"></i></div></div>
                 <div class="panel-body">
-                    <form role="form">
+                    <form role="form" id="addForm" >
                         <div class="form-group">
                             <label for="loginName">登陆账号</label>
                             <input type="text" class="form-control" id="loginName" name="loginName" placeholder="请输入登陆账号">
@@ -146,7 +148,7 @@
                         </div>
                         <div class="form-group">
                             <label for="confirmPwd">确认密码</label>
-                            <input type="password" class="form-control" id="confirmPwd" placeholder="请输入密码">
+                            <input type="password" class="form-control" name="confirmPwd" id="confirmPwd" placeholder="请输入密码">
                         </div>
                         <div class="form-group">
                             <label for="email">邮箱地址</label>
@@ -163,7 +165,9 @@
 </div>
 <script src="${APP_PATH}/static/jquery/jquery-2.1.1.min.js"></script>
 <script src="${APP_PATH}/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="${APP_PATH}/static/bootstrapValidator/js/bootstrapValidator.js"></script>
 <script src="${APP_PATH}/static/script/docs.min.js"></script>
+<script src="${APP_PATH}/static/layer/layer.js"></script>
 <script type="text/javascript">
     $(function () {
         $(".list-group-item").click(function(){
@@ -176,6 +180,118 @@
                 }
             }
         });
+    });
+
+    $('#addForm').bootstrapValidator({
+        //默认提示信息
+        message: 'This value is not valid',
+        //指定validator的工作图标
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',//通过验证的图标，一个绿色的勾
+            invalid: 'glyphicon glyphicon-remove',//红色叉叉
+            validating: 'glyphicon glyphicon-refresh'//刷新图标
+        },
+        //fields是boostrap-validator提供的属性，代表参与验证的表单标签的name属性的值
+        fields: {
+            loginName:{
+                validators: {//代表要验证哪些东西
+                    notEmpty: { //非空验证
+                        message: '登录账号不能为空'
+                    },
+                    stringLength:{
+                        min:6,  //最小长度为6
+                        max:12, //最大长度为12
+                        message:'账号必须在6-12位之间'
+                    },
+                    regexp:{
+                        regexp: /^[a-zA-Z][a-zA-Z0-9_]+[a-zA-Z]+$/,
+                        message: '账号必须是字母开头，并且不能包含特殊字符'
+                    },
+                    remote: {
+                        url: '${APP_PATH}/sys/validateLoginName',
+                        message: '该账号已注册'
+                    }
+                }
+            },
+            userName:{
+                validators: {
+                    notEmpty: {
+                        message:'用户名不能为空'
+                    },
+                    stringLength:{
+                        min:2,  //最小长度为6
+                        max:10, //最大长度为12
+                        message:'用户名必须在2-10位之间'
+                    },
+                    different: {
+                        field:'loginPwd',
+                        message:'用户名不能和密码相同'
+                    }
+                }
+            },
+            loginPwd:{
+                validators: {
+                    notEmpty: {
+                        message: '密码不能为空'
+                    },
+                    identical: {
+                        field: 'confirmPwd',  /*密码和确认密码必须相同*/
+                        message: '密码和确认密码必须相同'
+                    },
+                    different: {
+                        field: 'userName',
+                        message: '密码不能和用户名相同'
+                    }
+                }
+            },
+            confirmPwd:{
+                validators: {
+                    notEmpty: {
+                        message: '确认密码不能为空'
+                    },
+                    identical: {
+                        field: 'loginPwd',  /*密码和确认密码必须相同*/
+                        message: '密码和确认密码必须相同'
+                    },
+                    different: {
+                        field: 'userName',
+                        message: '确认密码不能和用户名相同'
+                    }
+                }
+            },
+            email:{
+                validators: {
+                    emailAddress: {
+                        message: '邮箱规则不合法'
+                    }
+                }
+            }
+        },
+        //当bootstrapValidator表单验证通过后，触发的提交表单的方法
+        submitHandler:function(v,f){ //v:bootstrapValidator的实例，f指当前form表单
+            let data = f.serialize(); //序列化表单，将表单中的值已键值的方式返回。name:value
+            let layerIndex;
+            $.ajax({
+                url:'${APP_PATH}/sys/addUser',
+                type:'post',
+                dataType:'json',
+                data:data,
+                beforeSend:function () {
+                    layerIndex = layer.load(1);
+                },
+                success:function (response) {
+                    layer.close(layerIndex);
+                    if (response.success) {
+                        layer.msg('添加成功',{icon:6,time:2000,anim:5},function () {
+                            //跳转到user页面
+                            window.location.href = '${APP_PATH}/jsp/user/users.jsp';
+                        })
+                    } else {
+                        layer.msg('添加失败',{icon:5,time:2000,anim:5})
+                    }
+                }
+            })
+        }
     });
 </script>
 </body>

@@ -132,9 +132,14 @@ public class JDBCUtil {
 
             if (connection != null)
                 connection.close();
+
+            if (!isStartTransaction) {
+                local.remove();
+            }
             logger.debug("execute close method");
             logger.debug("activeCount:" + dataSource.getActiveCount());
             logger.debug("PoolingCount:" + dataSource.getPoolingCount());
+
 
         } catch (SQLException e){
             logger.error(e.getMessage());
@@ -169,6 +174,7 @@ public class JDBCUtil {
             e.printStackTrace();
         } finally {
             if (isStartTransaction){
+                //TODO 修改关闭连接的逻辑，如果有事务，conneciton不能从ThreadLocal中移除
                 this.closeAll(null,preparedStatement,null);
             } else {
                 this.closeAll(connection,preparedStatement,null);
