@@ -39,7 +39,20 @@ public class LoginFilter implements Filter {
     }
 
     private boolean special(String path){//jsp04/asset/layer/theme/default/layer.css
-        String[] special = {"/jsp/login.jsp","/sys/doLogin",".css",".jpg",".png",".js",".gif"};
+        String[] special = {
+                "/jsp/login.jsp",
+                "/sys/doLogin",
+                ".css",
+                ".jpg",
+                ".png",
+                ".js",
+                ".gif",
+                "woff2",
+                "woff",
+                "ttf",
+                "css.map",
+
+        };
         for (int i = 0; i < special.length; i++) {
             if (path.endsWith(special[i])){
                 return true;
