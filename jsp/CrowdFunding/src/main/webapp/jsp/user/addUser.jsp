@@ -293,29 +293,6 @@
             })
         }
     });
-    $(function(){
-
-        $('#addForm').submit(function(event){
-            /*event.preventDefault();  //阻止表单的默认行为
-
-            $("form.required-validate", $('#addForm')).each(function() {
-                var $form = $(this);
-                $form.bootstrapValidator().on('success.form.bv', function(e) {
-                    // 阻止默认事件提交
-                    e.preventDefault();
-                });
-            });
-
-            //检测当前表单是否通过验证
-            let isValid = $('#addForm').data("bootstrapValidator").isValid();
-
-            if (isValid) {
-                console.log(isValid);
-            }*/
-
-            return false;
-        });
-    });
 </script>
 </body>
 </html>
