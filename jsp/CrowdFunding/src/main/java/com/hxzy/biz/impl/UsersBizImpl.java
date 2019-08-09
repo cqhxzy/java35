@@ -21,6 +21,11 @@ public class UsersBizImpl implements UsersBiz {
     }
 
     @Override
+    public boolean validateLoginName(String loginName) {
+        return usersDao.validateLoginName(loginName) == null;
+    }
+
+    @Override
     public boolean save(Users users) {
         String encrypt = StringUtil.encrypt(users.getLoginPwd()); //加密密码
         users.setLoginPwd(encrypt);

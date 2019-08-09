@@ -38,4 +38,11 @@ public class UsersBizImplTest {
         System.out.println(format);
         assertThat(zhangsan,notNullValue());
     }
+
+    @Test
+    public void valieDate(){
+        UsersBiz usersBiz = new UsersBizImpl();
+        boolean lisi = usersBiz.validateLoginName("2222");
+        System.out.println(lisi);
+    }
 }

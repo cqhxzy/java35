@@ -18,6 +18,13 @@ public class UsersDaoImpl extends JDBCUtil implements UsersDao {
     }
 
     @Override
+    public Users validateLoginName(String loginName) {
+        String sql = "select uId,loginName,userName,email,createTime from t_users where loginName = ?";
+        List<Users> users = super.queryAll(Users.class, sql, loginName);
+        return users.size() > 0 ? users.get(0) : null;
+    }
+
+    @Override
     public int save(Users users) {
         String sql = "insert into t_users (loginName,loginPwd,userName,email,createTime) values (?,?,?,?,?)";
         Object[] params = {users.getLoginName(),users.getLoginPwd(),users.getUserName(),users.getEmail(),users.getCreateTime()};
