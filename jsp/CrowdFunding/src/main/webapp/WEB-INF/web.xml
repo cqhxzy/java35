@@ -10,7 +10,12 @@
   <listener>
     <listener-class>com.hxzy.web.listener.InitServletContextListener</listener-class>
   </listener>
-  
+
+  <!--这个节点配置的初始化参数随着application的启动，而获取-->
+  <context-param>
+    <param-name>context_param</param-name>
+    <param-value>1</param-value>
+  </context-param>
   
   <welcome-file-list>
     <welcome-file>jsp/login.jsp</welcome-file>
