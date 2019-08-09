@@ -2,6 +2,9 @@ package com.hxzy.dao;
 
 import com.hxzy.entity.Users;
 
+import java.util.List;
+import java.util.Map;
+
 public interface UsersDao extends CommonDao<Users> {
 
     /**
@@ -18,4 +21,14 @@ public interface UsersDao extends CommonDao<Users> {
      * @return
      */
     Users validateLoginName(String loginName);
+
+    /**
+     * 分页查询
+     * @param pageIndex
+     * @param pageSize
+     * @return
+     */
+    List<Users> paging(int pageIndex, int pageSize, Map condition);
+
+    int pagingCount(Map condition);
 }
