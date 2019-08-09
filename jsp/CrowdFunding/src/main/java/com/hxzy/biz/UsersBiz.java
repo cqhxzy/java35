@@ -10,4 +10,11 @@ public interface UsersBiz extends CommonBiz<Users> {
      * @return
      */
     Users login(String loginName,String loginPwd);
+
+    /**
+     * 验证账号是否存在
+     * @param loginName
+     * @return
+     */
+    boolean validateLoginName(String loginName);
 }
