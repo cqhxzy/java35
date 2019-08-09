@@ -56,6 +56,14 @@
 <script src="${APP_PATH}/static/bootstrap/js/bootstrap.min.js"></script>
 <script src="${APP_PATH}/static/layer/layer.js"></script>
 <script>
+
+    //为所有的文本框和密码框绑定按键事件
+    $(":text,:password").keypress(function(event){
+        if (event.keyCode == 13){ //用户点击了回车键
+            dologin();
+        }
+    })
+
     function dologin() {
         let loginName = $("#loginName").val();
         let loginPwd = $("#loginPwd").val();
@@ -105,7 +113,7 @@
                 layer.close(layerIndex);
 
                 if (data.success) { //登录成功
-                    window.location.href = '${APP_PATH}/jsp/users.jsp';
+                    window.location.href = '${APP_PATH}/jsp/user/users.jsp';
                 } else {
                     layer.msg('用户名或密码错误',{icon:2,time: 2000,anim:5});
                     return;
