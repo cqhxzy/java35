@@ -1,5 +1,8 @@
 package com.hxzy.dao;
 
+import java.util.List;
+import java.util.Map;
+
 public interface CommonDao<T> {
     /**
      * 通用的新增的方法
@@ -26,4 +29,6 @@ public interface CommonDao<T> {
      * 根据id查询一条数据
      */
     T findById(Integer id);
+
+
 }
